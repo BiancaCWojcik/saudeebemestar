@@ -3,207 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde e Bem-Estar</title>
+    <title>Saúde e Bem-estar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f7f7f7;
             color: #333;
         }
-
         header {
             background-color: #19827b;
             color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-
-        nav {
-            background-color: #00a28e;
-            text-align: center;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            background-color: #25b9b0;
-        }
-
-        .content {
-            padding: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #19827b;
-            font-size: 28px;
-        }
-
-        .tips, .diseases, .calculator, .mental-health, .healthy-recipes {
-            background-color: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #00a28e;
+        }
+        .content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            background-color: #25b9b0;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #19827b;
+        }
+        input[type="number"], input[type="button"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 48%;
+        }
         footer {
             background-color: #19827b;
             color: white;
             text-align: center;
-            padding: 15px;
-        }
-
-        input, button {
             padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .calculator button {
-            background-color: #25b9b0;
-            color: white;
-            border: none;
-        }
-
-        .calculator button:hover {
-            background-color: #19827b;
-        }
-
-        .mental-health ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        .healthy-recipes ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .healthy-recipes li {
-            margin-bottom: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Cuide da Sua Saúde!</h1>
+        <p>A prevenção é o melhor caminho para uma vida saudável</p>
+    </header>
 
-<header>
-    <h1>Saúde e Bem-Estar: Viva Melhor Todos os Dias!</h1>
-</header>
+    <section class="container">
+        <div class="row">
+            <!-- Calculadora de IMC -->
+            <div class="column">
+                <h2>Calculadora de IMC</h2>
+                <div class="content">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" placeholder="Digite seu peso">
+                    <label for="altura">Altura (m):</label>
+                    <input type="number" step="0.01" id="altura" placeholder="Digite sua altura">
+                    <input type="button" value="Calcular IMC" class="button" onclick="calcularIMC()">
+                    <p id="resultadoIMC"></p>
+                </div>
+            </div>
 
-<nav>
-    <a href="#calculator">Calculadora de Água</a>
-    <a href="#tips">Dicas de Saúde</a>
-    <a href="#diseases">Prevenção de Doenças</a>
-    <a href="#mental-health">Saúde Mental</a>
-    <a href="#healthy-recipes">Receitas Saudáveis</a>
-</nav>
-
-<div class="content">
-
-    <section id="calculator" class="section">
-        <h2>Calculadora de Ingestão de Água</h2>
-        <p>Descubra a quantidade ideal de água que você deve beber diariamente com base no seu peso!</p>
-        <div class="calculator">
-            <label for="weight">Digite seu peso (kg):</label>
-            <input type="number" id="weight" placeholder="Exemplo: 70" required>
-            <button onclick="calcularAgua()">Calcular</button>
-            <p id="resultado"></p>
+            <!-- Calculadora de Calorias -->
+            <div class="column">
+                <h2>Calculadora de Calorias Diárias</h2>
+                <div class="content">
+                    <label for="idade">Idade (anos):</label>
+                    <input type="number" id="idade" placeholder="Digite sua idade">
+                    <label for="sexo">Sexo:</label>
+                    <select id="sexo">
+                        <option value="m">Masculino</option>
+                        <option value="f">Feminino</option>
+                    </select>
+                    <label for="atividade">Nível de Atividade:</label>
+                    <select id="atividade">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Levemente ativo</option>
+                        <option value="1.55">Moderadamente ativo</option>
+                        <option value="1.725">Muito ativo</option>
+                    </select>
+                    <input type="button" value="Calcular Calorias" class="button" onclick="calcularCalorias()">
+                    <p id="resultadoCalorias"></p>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <section id="tips" class="section">
-        <h2>Dicas de Saúde para o Dia a Dia</h2>
-        <div class="tips">
+        <div class="content">
+            <h2>Desafio de Saúde: 30 Dias</h2>
+            <p>Participe do nosso desafio saudável de 30 dias. A cada dia, adicione um novo hábito saudável!</p>
             <ul>
-                <li><strong>Coma alimentos ricos em fibras:</strong> Alimentos como grãos integrais, frutas e vegetais ajudam na digestão e mantêm seu sistema imunológico forte.</li>
-                <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
-                <li><strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, alimentos industrializados e fast food.</li>
-                <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
-                <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
+                <li><strong>Dia 1:</strong> Beba 8 copos de água</li>
+                <li><strong>Dia 2:</strong> Faça 30 minutos de caminhada</li>
+                <li><strong>Dia 3:</strong> Coma uma fruta a cada refeição</li>
+                <li><strong>Dia 4:</strong> Durma 8 horas</li>
+                <li><strong>Dia 5:</strong> Pratique meditação por 10 minutos</li>
             </ul>
+            <p>Junte-se a nós e melhore sua saúde a cada dia!</p>
+        </div>
+
+        <div class="row">
+            <!-- Rastreador de Hábitos -->
+            <div class="column">
+                <h2>Rastreador de Hábitos</h2>
+                <div class="content">
+                    <label for="agua">Quantos copos de água você bebeu hoje?</label>
+                    <input type="number" id="agua" placeholder="Digite a quantidade de copos">
+                    <label for="exercicio">Quantos minutos de exercício você fez?</label>
+                    <input type="number" id="exercicio" placeholder="Digite os minutos de exercício">
+                    <input type="button" value="Salvar Hábitos" class="button" onclick="salvarHabitos()">
+                    <p id="habitosStatus"></p>
+                </div>
+            </div>
+
+            <!-- Teste de Saúde Mental -->
+            <div class="column">
+                <h2>Teste de Saúde Mental</h2>
+                <div class="content">
+                    <p>Você se sente estressado ultimamente?</p>
+                    <label><input type="radio" name="estresse" value="Sim"> Sim</label>
+                    <label><input type="radio" name="estresse" value="Não"> Não</label>
+                    <p id="resultadoEstresse"></p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="diseases" class="section">
-        <h2>Prevenção de Doenças Comuns</h2>
-        <div class="diseases">
-            <h3>1. Hipertensão (Pressão Alta)</h3>
-            <p>A hipertensão é muitas vezes chamada de "assassino silencioso". Mantenha a pressão arterial sob controle com a prática de atividades físicas regulares, dieta balanceada e evitando o consumo excessivo de sal.</p>
+    <footer>
+        <p>&copy; 2025 Saúde e Bem-estar - Todos os direitos reservados</p>
+    </footer>
 
-            <h3>2. Diabetes Tipo 2</h3>
-            <p>A diabetes tipo 2 é uma condição em que o corpo não consegue usar adequadamente a insulina. Prevenção envolve alimentação saudável, controle do peso e atividade física constante.</p>
-
-            <h3>3. Doenças Cardiovasculares</h3>
-            <p>Manter uma dieta saudável, praticar exercícios e evitar fumar são as melhores formas de prevenir doenças cardíacas. Controlar o colesterol e a pressão arterial também é essencial.</p>
-
-            <h3>4. Doenças Respiratórias</h3>
-            <p>Para prevenir doenças respiratórias, como a asma, evite poluentes, procure um ambiente com boa ventilação e realize exercícios respiratórios regularmente.</p>
-        </div>
-    </section>
-
-    <section id="mental-health" class="section">
-        <h2>Saúde Mental: A Importância do Equilíbrio Emocional</h2>
-        <div class="mental-health">
-            <h3>Dicas para Cuidar da Sua Mente:</h3>
-            <ul>
-                <li><strong>Pratique a meditação:</strong> A meditação é uma ótima maneira de reduzir o estresse e melhorar o foco mental.</li>
-                <li><strong>Durma o suficiente:</strong> Dormir entre 7 a 8 horas por noite é fundamental para manter a saúde mental em equilíbrio.</li>
-                <li><strong>Converse com alguém:</strong> Falar com amigos, familiares ou até um terapeuta pode ajudar a aliviar o peso emocional.</li>
-                <li><strong>Evite o isolamento:</strong> Interaja com outras pessoas, mantenha relações sociais e participe de atividades comunitárias.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="healthy-recipes" class="section">
-        <h2>Receitas Saudáveis para o Seu Bem-Estar</h2>
-        <div class="healthy-recipes">
-            <h3>Receita 1: Salada Colorida de Quinoa</h3>
-            <p>Uma refeição nutritiva e cheia de fibras! Prepare a quinoa e misture com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Uma excelente opção para o almoço.</p>
-
-            <h3>Receita 2: Smoothie Verde Energético</h3>
-            <p>Uma bebida refrescante e cheia de nutrientes. Bata espinafre, abacaxi, maçã, gengibre e um pouco de água de coco para um smoothie delicioso e saudável.</p>
-
-            <h3>Receita 3: Frango Grelhado com Legumes</h3>
-            <p>Um prato saudável e fácil de fazer. Grelhe peito de frango e acompanhe com legumes assados (cenoura, abobrinha, brócolis). A combinação ideal para uma alimentação equilibrada.</p>
-        </div>
-    </section>
-
-</div>
-
-<footer>
-    <p>&copy; 2025 Saúde e Bem-Estar. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-    function calcularAgua() {
-        var peso = document.getElementById("weight").value;
-        if (peso && peso > 0) {
-            var resultado = peso * 35; // 35 ml por kg
-            document.getElementById("resultado").innerText = "Você deve beber " + resultado + " ml de água por dia.";
-        } else {
-            document.getElementById("resultado").innerText = "Por favor, insira um peso válido.";
+    <script>
+        // Calculadora de IMC
+        function calcularIMC() {
+            var peso = parseFloat(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            if (peso > 0 && altura > 0) {
+                var imc = peso / (altura * altura);
+                var resultado = "Seu IMC é " + imc.toFixed(2) + ".";
+                if (imc < 18.5) {
+                    resultado += " Você está abaixo do peso.";
+                } else if (imc >= 18.5 && imc < 24.9) {
+                    resultado += " Você está no peso ideal.";
+                } else if (imc >= 25 && imc < 29.9) {
+                    resultado += " Você está com sobrepeso.";
+                } else {
+                    resultado += " Você está obeso.";
+                }
+                document.getElementById("resultadoIMC").innerText = resultado;
+            } else {
+                alert("Por favor, insira valores válidos.");
+            }
         }
-    }
-</script>
 
+        // Calculadora de Calorias Diárias
+        function calcularCalorias() {
+            var idade = parseInt(document.getElementById("idade").value);
+            var sexo = document.getElementById("sexo").value;
+            var atividade = parseFloat(document.getElementById("atividade").value);
+
+            var calorias;
+            if (sexo === "m") {
+                calorias = (10 * 70) + (6.25 * 170) - (5 * idade) + 5;
+            } else {
+                calorias = (10 * 60) + (6.25 * 160) - (5 * idade) - 161;
+            }
+
+            calorias = calorias * atividade;
+            document.getElementById("resultadoCalorias").innerText = "Sua ingestão diária recomendada é " + Math.round(calorias) + " calorias.";
+        }
+
+        // Rastreador de Hábitos
+        function salvarHabitos() {
+            var agua = document.getElementById("agua").value;
+            var exercicio = document.getElementById("exercicio").value;
+
+            var mensagem = "Hábitos salvos com sucesso!";
+            if (agua < 8) {
+                mensagem += " Lembre-se de beber pelo menos 8 copos de água.";
+            }
+            if (exercicio < 30) {
+                mensagem += " Tente fazer 30 minutos de exercício por dia.";
+            }
+            document.getElementById("habitosStatus").innerText = mensagem;
+        }
+
+        // Teste de Saúde Mental
+        var radios = document.getElementsByName('estresse');
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                var resultado = "Saúde mental é importante! Se você está estressado, tente praticar atividades relaxantes.";
+                document.getElementById("resultadoEstresse").innerText = resultado;
+            });
+        });
+    </script>
 </body>
 </html>
