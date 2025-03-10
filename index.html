@@ -41,7 +41,7 @@
         .button:hover {
             background-color: #19827b;
         }
-        input[type="number"], input[type="button"] {
+        input[type="number"], input[type="button"], input[type="text"], select {
             padding: 10px;
             width: 100%;
             margin-bottom: 10px;
@@ -115,6 +115,7 @@
             </div>
         </div>
 
+        <!-- Desafio de Saúde -->
         <div class="content">
             <h2>Desafio de Saúde: 30 Dias</h2>
             <p>Participe do nosso desafio saudável de 30 dias. A cada dia, adicione um novo hábito saudável!</p>
@@ -128,8 +129,8 @@
             <p>Junte-se a nós e melhore sua saúde a cada dia!</p>
         </div>
 
+        <!-- Rastreador de Hábitos -->
         <div class="row">
-            <!-- Rastreador de Hábitos -->
             <div class="column">
                 <h2>Rastreador de Hábitos</h2>
                 <div class="content">
@@ -152,6 +153,15 @@
                     <p id="resultadoEstresse"></p>
                 </div>
             </div>
+        </div>
+
+        <!-- Calculadora de Água -->
+        <div class="content">
+            <h2>Calculadora de Quantidade de Água</h2>
+            <label for="peso-agua">Qual seu peso (kg)?</label>
+            <input type="number" id="peso-agua" placeholder="Digite seu peso">
+            <input type="button" value="Calcular Água" class="button" onclick="calcularAgua()">
+            <p id="resultadoAgua"></p>
         </div>
     </section>
 
@@ -199,27 +209,37 @@
             document.getElementById("resultadoCalorias").innerText = "Sua ingestão diária recomendada é " + Math.round(calorias) + " calorias.";
         }
 
+        // Calculadora de Água
+        function calcularAgua() {
+            var peso = parseFloat(document.getElementById("peso-agua").value);
+            var quantidadeAgua = peso * 0.035;
+            document.getElementById("resultadoAgua").innerText = "Você deve beber cerca de " + quantidadeAgua.toFixed(2) + " litros de água por dia.";
+        }
+
         // Rastreador de Hábitos
         function salvarHabitos() {
-            var agua = document.getElementById("agua").value;
-            var exercicio = document.getElementById("exercicio").value;
+            var agua = parseInt(document.getElementById("agua").value);
+            var exercicio = parseInt(document.getElementById("exercicio").value);
 
-            var mensagem = "Hábitos salvos com sucesso!";
-            if (agua < 8) {
-                mensagem += " Lembre-se de beber pelo menos 8 copos de água.";
+            var mensagem = "Você manteve os seguintes hábitos hoje:\n";
+            if (agua >= 8) {
+                mensagem += "- Você bebeu água suficiente.\n";
+            } else {
+                mensagem += "- Você não bebeu água suficiente.\n";
             }
-            if (exercicio < 30) {
-                mensagem += " Tente fazer 30 minutos de exercício por dia.";
+            if (exercicio >= 30) {
+                mensagem += "- Você fez exercício suficiente.\n";
+            } else {
+                mensagem += "- Você não fez exercício suficiente.\n";
             }
             document.getElementById("habitosStatus").innerText = mensagem;
         }
 
         // Teste de Saúde Mental
-        var radios = document.getElementsByName('estresse');
-        radios.forEach(function(radio) {
-            radio.addEventListener('change', function() {
-                var resultado = "Saúde mental é importante! Se você está estressado, tente praticar atividades relaxantes.";
-                document.getElementById("resultadoEstresse").innerText = resultado;
+        document.querySelectorAll('input[name="estresse"]').forEach((element) => {
+            element.addEventListener('change', function() {
+                var resultado = document.querySelector('input[name="estresse"]:checked').value;
+                document.getElementById("resultadoEstresse").innerText = "Você se sente estressado? " + resultado;
             });
         });
     </script>
