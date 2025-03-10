@@ -114,7 +114,7 @@
         <p>Descubra a quantidade ideal de água que você deve beber diariamente com base no seu peso!</p>
         <div class="calculator">
             <label for="weight">Digite seu peso (kg):</label>
-            <input type="number" id="weight" placeholder="Exemplo: 70">
+            <input type="number" id="weight" placeholder="Exemplo: 70" required>
             <button onclick="calcularAgua()">Calcular</button>
             <p id="resultado"></p>
         </div>
@@ -174,7 +174,7 @@
     function calcularAgua() {
         var peso = document.getElementById("weight").value;
         if (peso && peso > 0) {
-            var resultado = peso * 35;
+            var resultado = peso * 35; // 35 ml por kg
             document.getElementById("resultado").innerText = "Você deve beber " + resultado + " ml de água por dia.";
         } else {
             document.getElementById("resultado").innerText = "Por favor, insira um peso válido.";
