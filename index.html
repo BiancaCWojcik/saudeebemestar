@@ -197,19 +197,19 @@
             var idade = parseInt(document.getElementById("idade").value);
             var sexo = document.getElementById("sexo").value;
             var atividade = parseFloat(document.getElementById("atividade").value);
-
             var calorias;
-            if (sexo === "m") {
-                calorias = (10 * 70) + (6.25 * 170) - (5 * idade) + 5;
-            } else {
-                calorias = (10 * 60) + (6.25 * 160) - (5 * idade) - 161;
-            }
 
-            calorias = calorias * atividade;
-            document.getElementById("resultadoCalorias").innerText = "Sua ingestão diária recomendada é " + Math.round(calorias) + " calorias.";
+            if (sexo === "m") {
+                calorias = 10 * 70 + 6.25 * 175 - 5 * idade + 5; // Fórmula masculina
+            } else {
+                calorias = 10 * 60 + 6.25 * 160 - 5 * idade - 161; // Fórmula feminina
+            }
+            calorias *= atividade; // Ajusta com base na atividade
+
+            document.getElementById("resultadoCalorias").innerText = "Você precisa de " + calorias.toFixed(0) + " calorias por dia.";
         }
 
-        // Calculadora de Água
+        // Calculadora de Quantidade de Água
         function calcularAgua() {
             var peso = parseFloat(document.getElementById("peso-agua").value);
             var quantidadeAgua = peso * 0.035;
