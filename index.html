@@ -11,7 +11,18 @@
         ul { list-style: none; padding: 0; }
         li { margin: 10px 0; }
         .calculator { margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; }
-        input, button { padding: 8px; margin-top: 5px; }
+        input, button { padding: 8px; margin-top: 5px; width: 100%; max-width: 400px; }
+        button { cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #45a049; }
+        p { font-size: 1.1rem; color: #333; }
+        
+        /* Responsividade para dispositivos móveis */
+        @media screen and (max-width: 600px) {
+            .section { padding: 15px; }
+            h2 { font-size: 1.5rem; }
+            input, button { width: 100%; }
+            .calculator { padding: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -19,32 +30,35 @@
     <section class="section calculator">
         <h2>🧮 Calculadoras de Saúde</h2>
 
-        <div>
+        <!-- Calculadora de Quantidade de Água -->
+        <div class="calculator">
             <h3>💧 Cálculo da Ingestão Diária de Água</h3>
             <label>Peso (kg):</label>
-            <input type="number" id="pesoAgua">
+            <input type="number" id="pesoAgua" placeholder="Digite seu peso">
             <button onclick="calcularAgua()">Calcular</button>
             <p id="resultadoAgua"></p>
         </div>
 
-        <div>
+        <!-- Calculadora de IMC -->
+        <div class="calculator">
             <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
             <label>Peso (kg):</label>
-            <input type="number" id="pesoIMC">
+            <input type="number" id="pesoIMC" placeholder="Digite seu peso">
             <label>Altura (cm):</label>
-            <input type="number" id="alturaIMC">
+            <input type="number" id="alturaIMC" placeholder="Digite sua altura em cm">
             <button onclick="calcularIMC()">Calcular</button>
             <p id="resultadoIMC"></p>
         </div>
 
-        <div>
+        <!-- Calculadora de Calorias Diárias -->
+        <div class="calculator">
             <h3>🔥 Calculadora de Calorias Diárias</h3>
             <label>Peso (kg):</label>
-            <input type="number" id="pesoCalorias">
+            <input type="number" id="pesoCalorias" placeholder="Digite seu peso">
             <label>Altura (cm):</label>
-            <input type="number" id="alturaCalorias">
+            <input type="number" id="alturaCalorias" placeholder="Digite sua altura em cm">
             <label>Idade:</label>
-            <input type="number" id="idadeCalorias">
+            <input type="number" id="idadeCalorias" placeholder="Digite sua idade">
             <label>Gênero:</label>
             <select id="generoCalorias">
                 <option value="masculino">Masculino</option>
@@ -56,21 +70,23 @@
     </section>
 
     <script>
+        // Função para calcular a ingestão diária de água
         function calcularAgua() {
             let peso = document.getElementById("pesoAgua").value;
             if (peso) {
-                let agua = (peso * 35) / 1000;
+                let agua = (peso * 35) / 1000; // Fórmula de cálculo de ingestão de água
                 document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
             } else {
                 document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
             }
         }
 
+        // Função para calcular o IMC
         function calcularIMC() {
             let peso = document.getElementById("pesoIMC").value;
             let altura = document.getElementById("alturaIMC").value;
             if (peso && altura) {
-                let alturaMetros = altura / 100; // Convertendo cm para metros
+                let alturaMetros = altura / 100; // Convertendo altura de cm para metros
                 let imc = (peso / (alturaMetros * alturaMetros)).toFixed(2);
                 document.getElementById("resultadoIMC").innerText = `Seu IMC é: ${imc}`;
             } else {
@@ -78,6 +94,7 @@
             }
         }
 
+        // Função para calcular as calorias diárias
         function calcularCalorias() {
             let peso = document.getElementById("pesoCalorias").value;
             let altura = document.getElementById("alturaCalorias").value;
@@ -87,9 +104,9 @@
             if (peso && altura && idade) {
                 let tmb;
                 if (genero === "masculino") {
-                    tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade);
+                    tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade); // Fórmula de Harris-Benedict para homens
                 } else {
-                    tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade);
+                    tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade); // Fórmula de Harris-Benedict para mulheres
                 }
 
                 document.getElementById("resultadoCalorias").innerText = `Sua necessidade calórica diária é de aproximadamente ${tmb.toFixed(2)} kcal. 🔥`;
