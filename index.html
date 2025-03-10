@@ -3,245 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde e Bem-estar</title>
+    <title>Saúde e Bem-Estar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7;
+            background-color: #f4f4f9;
             color: #333;
         }
+
         header {
             background-color: #19827b;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 30px;
         }
-        section {
-            padding: 20px;
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
         }
-        h1, h2 {
-            color: #00a28e;
-        }
-        .content {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .button {
-            background-color: #25b9b0;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #19827b;
-        }
-        input[type="number"], input[type="button"], input[type="text"], select {
+
+        nav {
+            background-color: #00a28e;
+            text-align: center;
             padding: 10px;
-            width: 100%;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
         }
-        .container {
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #25b9b0;
+        }
+
+        .content {
+            padding: 30px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
         }
-        .row {
-            display: flex;
-            justify-content: space-between;
+
+        .section {
+            margin-bottom: 40px;
         }
-        .column {
-            width: 48%;
+
+        .section h2 {
+            color: #19827b;
+            font-size: 28px;
         }
+
+        .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
             background-color: #19827b;
             color: white;
             text-align: center;
+            padding: 15px;
+        }
+
+        input, button {
             padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .calculator button {
+            background-color: #25b9b0;
+            color: white;
+            border: none;
+        }
+
+        .calculator button:hover {
+            background-color: #19827b;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Cuide da Sua Saúde!</h1>
-        <p>A prevenção é o melhor caminho para uma vida saudável</p>
-    </header>
 
-    <section class="container">
-        <div class="row">
-            <!-- Calculadora de IMC -->
-            <div class="column">
-                <h2>Calculadora de IMC</h2>
-                <div class="content">
-                    <label for="peso">Peso (kg):</label>
-                    <input type="number" id="peso" placeholder="Digite seu peso">
-                    <label for="altura">Altura (m):</label>
-                    <input type="number" step="0.01" id="altura" placeholder="Digite sua altura">
-                    <input type="button" value="Calcular IMC" class="button" onclick="calcularIMC()">
-                    <p id="resultadoIMC"></p>
-                </div>
-            </div>
+<header>
+    <h1>Saúde e Bem-Estar: Viva Melhor Todos os Dias!</h1>
+</header>
 
-            <!-- Calculadora de Calorias -->
-            <div class="column">
-                <h2>Calculadora de Calorias Diárias</h2>
-                <div class="content">
-                    <label for="idade">Idade (anos):</label>
-                    <input type="number" id="idade" placeholder="Digite sua idade">
-                    <label for="sexo">Sexo:</label>
-                    <select id="sexo">
-                        <option value="m">Masculino</option>
-                        <option value="f">Feminino</option>
-                    </select>
-                    <label for="atividade">Nível de Atividade:</label>
-                    <select id="atividade">
-                        <option value="1.2">Sedentário</option>
-                        <option value="1.375">Levemente ativo</option>
-                        <option value="1.55">Moderadamente ativo</option>
-                        <option value="1.725">Muito ativo</option>
-                    </select>
-                    <input type="button" value="Calcular Calorias" class="button" onclick="calcularCalorias()">
-                    <p id="resultadoCalorias"></p>
-                </div>
-            </div>
-        </div>
+<nav>
+    <a href="#calculator-water">Água</a>
+    <a href="#calculator-imc">IMC</a>
+    <a href="#calculator-calories">Calorias</a>
+</nav>
 
-        <!-- Desafio de Saúde -->
-        <div class="content">
-            <h2>Desafio de Saúde: 30 Dias</h2>
-            <p>Participe do nosso desafio saudável de 30 dias. A cada dia, adicione um novo hábito saudável!</p>
-            <ul>
-                <li><strong>Dia 1:</strong> Beba 8 copos de água</li>
-                <li><strong>Dia 2:</strong> Faça 30 minutos de caminhada</li>
-                <li><strong>Dia 3:</strong> Coma uma fruta a cada refeição</li>
-                <li><strong>Dia 4:</strong> Durma 8 horas</li>
-                <li><strong>Dia 5:</strong> Pratique meditação por 10 minutos</li>
-            </ul>
-            <p>Junte-se a nós e melhore sua saúde a cada dia!</p>
-        </div>
+<div class="content">
 
-        <!-- Rastreador de Hábitos -->
-        <div class="row">
-            <div class="column">
-                <h2>Rastreador de Hábitos</h2>
-                <div class="content">
-                    <label for="agua">Quantos copos de água você bebeu hoje?</label>
-                    <input type="number" id="agua" placeholder="Digite a quantidade de copos">
-                    <label for="exercicio">Quantos minutos de exercício você fez?</label>
-                    <input type="number" id="exercicio" placeholder="Digite os minutos de exercício">
-                    <input type="button" value="Salvar Hábitos" class="button" onclick="salvarHabitos()">
-                    <p id="habitosStatus"></p>
-                </div>
-            </div>
-
-            <!-- Teste de Saúde Mental -->
-            <div class="column">
-                <h2>Teste de Saúde Mental</h2>
-                <div class="content">
-                    <p>Você se sente estressado ultimamente?</p>
-                    <label><input type="radio" name="estresse" value="Sim"> Sim</label>
-                    <label><input type="radio" name="estresse" value="Não"> Não</label>
-                    <p id="resultadoEstresse"></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Calculadora de Água -->
-        <div class="content">
-            <h2>Calculadora de Quantidade de Água</h2>
-            <label for="peso-agua">Qual seu peso (kg)?</label>
-            <input type="number" id="peso-agua" placeholder="Digite seu peso">
-            <input type="button" value="Calcular Água" class="button" onclick="calcularAgua()">
-            <p id="resultadoAgua"></p>
+    <!-- Calculadora de Ingestão de Água -->
+    <section id="calculator-water" class="section">
+        <h2>Calculadora de Ingestão de Água</h2>
+        <div class="calculator">
+            <label for="weight">Digite seu peso (kg):</label>
+            <input type="number" id="weight" placeholder="Exemplo: 70" required>
+            <button onclick="calcularAgua()">Calcular</button>
+            <p id="resultado-agua"></p>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Saúde e Bem-estar - Todos os direitos reservados</p>
-    </footer>
+    <!-- Calculadora de IMC -->
+    <section id="calculator-imc" class="section">
+        <h2>Calculadora de IMC</h2>
+        <div class="calculator">
+            <label for="imc-weight">Peso (kg):</label>
+            <input type="number" id="imc-weight" placeholder="Exemplo: 70">
+            <label for="imc-height">Altura (m):</label>
+            <input type="number" step="0.01" id="imc-height" placeholder="Exemplo: 1.75">
+            <button onclick="calcularIMC()">Calcular</button>
+            <p id="resultado-imc"></p>
+        </div>
+    </section>
 
-    <script>
-        // Calculadora de IMC
-        function calcularIMC() {
-            var peso = parseFloat(document.getElementById("peso").value);
-            var altura = parseFloat(document.getElementById("altura").value);
-            if (peso > 0 && altura > 0) {
-                var imc = peso / (altura * altura);
-                var resultado = "Seu IMC é " + imc.toFixed(2) + ".";
-                if (imc < 18.5) {
-                    resultado += " Você está abaixo do peso.";
-                } else if (imc >= 18.5 && imc < 24.9) {
-                    resultado += " Você está no peso ideal.";
-                } else if (imc >= 25 && imc < 29.9) {
-                    resultado += " Você está com sobrepeso.";
-                } else {
-                    resultado += " Você está obeso.";
-                }
-                document.getElementById("resultadoIMC").innerText = resultado;
-            } else {
-                alert("Por favor, insira valores válidos.");
-            }
+    <!-- Calculadora de Calorias Diárias -->
+    <section id="calculator-calories" class="section">
+        <h2>Calculadora de Calorias Diárias</h2>
+        <div class="calculator">
+            <label for="cal-weight">Peso (kg):</label>
+            <input type="number" id="cal-weight" placeholder="Exemplo: 70">
+            <label for="cal-height">Altura (cm):</label>
+            <input type="number" id="cal-height" placeholder="Exemplo: 175">
+            <label for="cal-age">Idade:</label>
+            <input type="number" id="cal-age" placeholder="Exemplo: 30">
+            <label for="cal-gender">Gênero:</label>
+            <select id="cal-gender">
+                <option value="male">Masculino</option>
+                <option value="female">Feminino</option>
+            </select>
+            <button onclick="calcularCalorias()">Calcular</button>
+            <p id="resultado-calorias"></p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Saúde e Bem-Estar. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    // Calculadora de Ingestão de Água
+    function calcularAgua() {
+        var peso = document.getElementById("weight").value;
+        if (peso && peso > 0) {
+            var resultado = peso * 35; // 35 ml por kg
+            document.getElementById("resultado-agua").innerText = "Você deve beber " + resultado + " ml de água por dia.";
+        } else {
+            document.getElementById("resultado-agua").innerText = "Por favor, insira um peso válido.";
         }
+    }
 
-        // Calculadora de Calorias Diárias
-        function calcularCalorias() {
-            var idade = parseInt(document.getElementById("idade").value);
-            var sexo = document.getElementById("sexo").value;
-            var atividade = parseFloat(document.getElementById("atividade").value);
-            var calorias;
+    // Calculadora de IMC
+    function calcularIMC() {
+        var peso = document.getElementById("imc-weight").value;
+        var altura = document.getElementById("imc-height").value;
+        
+        if (peso > 0 && altura > 0) {
+            var imc = peso / (altura * altura);
+            var classificacao = "";
 
-            if (sexo === "m") {
-                calorias = 10 * 70 + 6.25 * 175 - 5 * idade + 5; // Fórmula masculina
-            } else {
-                calorias = 10 * 60 + 6.25 * 160 - 5 * idade - 161; // Fórmula feminina
-            }
-            calorias *= atividade; // Ajusta com base na atividade
+            if (imc < 18.5) classificacao = "Abaixo do peso";
+            else if (imc < 24.9) classificacao = "Peso normal";
+            else if (imc < 29.9) classificacao = "Sobrepeso";
+            else classificacao = "Obesidade";
 
-            document.getElementById("resultadoCalorias").innerText = "Você precisa de " + calorias.toFixed(0) + " calorias por dia.";
+            document.getElementById("resultado-imc").innerText = "Seu IMC é " + imc.toFixed(2) + " (" + classificacao + ")";
+        } else {
+            document.getElementById("resultado-imc").innerText = "Por favor, insira valores válidos.";
         }
+    }
 
-        // Calculadora de Quantidade de Água
-        function calcularAgua() {
-            var peso = parseFloat(document.getElementById("peso-agua").value);
-            var quantidadeAgua = peso * 0.035;
-            document.getElementById("resultadoAgua").innerText = "Você deve beber cerca de " + quantidadeAgua.toFixed(2) + " litros de água por dia.";
-        }
+    // Calculadora de Calorias Diárias
+    function calcularCalorias() {
+        var peso = document.getElementById("cal-weight").value;
+        var altura = document.getElementById("cal-height").value;
+        var idade = document.getElementById("cal-age").value;
+        var genero = document.getElementById("cal-gender").value;
 
-        // Rastreador de Hábitos
-        function salvarHabitos() {
-            var agua = parseInt(document.getElementById("agua").value);
-            var exercicio = parseInt(document.getElementById("exercicio").value);
-
-            var mensagem = "Você manteve os seguintes hábitos hoje:\n";
-            if (agua >= 8) {
-                mensagem += "- Você bebeu água suficiente.\n";
+        if (peso > 0 && altura > 0 && idade > 0) {
+            var tmb;
+            if (genero === "male") {
+                tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade);
             } else {
-                mensagem += "- Você não bebeu água suficiente.\n";
+                tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade);
             }
-            if (exercicio >= 30) {
-                mensagem += "- Você fez exercício suficiente.\n";
-            } else {
-                mensagem += "- Você não fez exercício suficiente.\n";
-            }
-            document.getElementById("habitosStatus").innerText = mensagem;
+            document.getElementById("resultado-calorias").innerText = "Sua necessidade calórica diária é aproximadamente " + tmb.toFixed(2) + " kcal.";
+        } else {
+            document.getElementById("resultado-calorias").innerText = "Preencha todos os campos corretamente.";
         }
+    }
+</script>
 
-        // Teste de Saúde Mental
-        document.querySelectorAll('input[name="estresse"]').forEach((element) => {
-            element.addEventListener('change', function() {
-                var resultado = document.querySelector('input[name="estresse"]:checked').value;
-                document.getElementById("resultadoEstresse").innerText = "Você se sente estressado? " + resultado;
-            });
-        });
-    </script>
 </body>
 </html>
