@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,202 +9,87 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f5f5f5;
             color: #333;
         }
-
         header {
-            background-color: #19827b;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-
-        nav {
-            background-color: #00a28e;
-            text-align: center;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        nav a:hover {
-            background-color: #25b9b0;
-        }
-
-        .content {
-            padding: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #19827b;
-            font-size: 28px;
-        }
-
-        .calculator {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #19827b;
+            background-color: #4CAF50;
             color: white;
             text-align: center;
             padding: 15px;
+            font-size: 24px;
         }
-
-        input, button {
-            padding: 10px;
+        .section {
+            padding: 20px;
+            background-color: white;
             margin: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .calculator button {
-            background-color: #25b9b0;
-            color: white;
-            border: none;
+        h2 {
+            color: #4CAF50;
         }
-
-        .calculator button:hover {
-            background-color: #19827b;
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 8px 0;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Saúde e Bem-Estar: Viva Melhor Todos os Dias!</h1>
-</header>
+<header>🌿 Saúde e Bem-Estar</header>
 
-<nav>
-    <a href="#calculator-water">Água</a>
-    <a href="#calculator-imc">IMC</a>
-    <a href="#calculator-calories">Calorias</a>
-</nav>
+<section id="daily-tips" class="section">
+    <h2>💡 Dicas de Saúde para o Dia a Dia</h2>
+    <ul>
+        <li>🥦 <strong>Coma alimentos ricos em fibras:</strong> Grãos integrais, frutas e vegetais ajudam na digestão e fortalecem o sistema imunológico.</li>
+        <li>🏃‍♂️ <strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
+        <li>🍟 <strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, industrializados e fast food.</li>
+        <li>⚖️ <strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de diabetes tipo 2 e problemas cardíacos.</li>
+        <li>☀️ <strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura (10-15 min/dia) para garantir níveis adequados de vitamina D.</li>
+    </ul>
+</section>
 
-<div class="content">
+<section id="disease-prevention" class="section">
+    <h2>🩺 Prevenção de Doenças Comuns</h2>
+    <h3>1️⃣ Hipertensão (Pressão Alta)</h3>
+    <p>🩸 A hipertensão é chamada de "assassino silencioso". Mantenha a pressão sob controle com exercícios, dieta balanceada e pouco sal.</p>
 
-    <!-- Calculadora de Ingestão de Água -->
-    <section id="calculator-water" class="section">
-        <h2>Calculadora de Ingestão de Água</h2>
-        <div class="calculator">
-            <label for="weight">Digite seu peso (kg):</label>
-            <input type="number" id="weight" placeholder="Exemplo: 70" required>
-            <button onclick="calcularAgua()">Calcular</button>
-            <p id="resultado-agua"></p>
-        </div>
-    </section>
+    <h3>2️⃣ Diabetes Tipo 2</h3>
+    <p>🍬 O corpo não usa insulina corretamente. Prevenção: alimentação saudável, controle do peso e atividade física constante.</p>
 
-    <!-- Calculadora de IMC -->
-    <section id="calculator-imc" class="section">
-        <h2>Calculadora de IMC</h2>
-        <div class="calculator">
-            <label for="imc-weight">Peso (kg):</label>
-            <input type="number" id="imc-weight" placeholder="Exemplo: 70">
-            <label for="imc-height">Altura (m):</label>
-            <input type="number" step="0.01" id="imc-height" placeholder="Exemplo: 1.75">
-            <button onclick="calcularIMC()">Calcular</button>
-            <p id="resultado-imc"></p>
-        </div>
-    </section>
+    <h3>3️⃣ Doenças Cardiovasculares</h3>
+    <p>❤️ Manter uma dieta equilibrada, praticar exercícios e evitar fumar são essenciais para prevenir doenças do coração.</p>
 
-    <!-- Calculadora de Calorias Diárias -->
-    <section id="calculator-calories" class="section">
-        <h2>Calculadora de Calorias Diárias</h2>
-        <div class="calculator">
-            <label for="cal-weight">Peso (kg):</label>
-            <input type="number" id="cal-weight" placeholder="Exemplo: 70">
-            <label for="cal-height">Altura (cm):</label>
-            <input type="number" id="cal-height" placeholder="Exemplo: 175">
-            <label for="cal-age">Idade:</label>
-            <input type="number" id="cal-age" placeholder="Exemplo: 30">
-            <label for="cal-gender">Gênero:</label>
-            <select id="cal-gender">
-                <option value="male">Masculino</option>
-                <option value="female">Feminino</option>
-            </select>
-            <button onclick="calcularCalorias()">Calcular</button>
-            <p id="resultado-calorias"></p>
-        </div>
-    </section>
+    <h3>4️⃣ Doenças Respiratórias</h3>
+    <p>🌬️ Para prevenir asma e outras doenças respiratórias, evite poluentes, tenha um ambiente ventilado e faça exercícios respiratórios.</p>
+</section>
 
-</div>
+<section id="mental-health" class="section">
+    <h2>🧠 Saúde Mental: A Importância do Equilíbrio Emocional</h2>
+    <h3>Dicas para Cuidar da Sua Mente:</h3>
+    <ul>
+        <li>🧘‍♀️ <strong>Pratique a meditação:</strong> Reduz o estresse e melhora o foco mental.</li>
+        <li>😴 <strong>Durma bem:</strong> 7 a 8 horas de sono são fundamentais para a saúde mental.</li>
+        <li>🗣️ <strong>Converse com alguém:</strong> Falar com amigos, familiares ou um terapeuta pode aliviar o peso emocional.</li>
+        <li>🤝 <strong>Evite o isolamento:</strong> Interaja socialmente e participe de atividades comunitárias.</li>
+    </ul>
+</section>
 
-<footer>
-    <p>&copy; 2025 Saúde e Bem-Estar. Todos os direitos reservados.</p>
-</footer>
+<section id="healthy-recipes" class="section">
+    <h2>🥗 Receitas Saudáveis para o Seu Bem-Estar</h2>
+    <h3>1️⃣ Salada Colorida de Quinoa</h3>
+    <p>🌈 Misture quinoa com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Opção nutritiva para o almoço!</p>
 
-<script>
-    // Calculadora de Ingestão de Água
-    function calcularAgua() {
-        var peso = document.getElementById("weight").value;
-        if (peso && peso > 0) {
-            var resultado = peso * 35; // 35 ml por kg
-            document.getElementById("resultado-agua").innerText = "Você deve beber " + resultado + " ml de água por dia.";
-        } else {
-            document.getElementById("resultado-agua").innerText = "Por favor, insira um peso válido.";
-        }
-    }
+    <h3>2️⃣ Smoothie Verde Energético</h3>
+    <p>🍹 Bata espinafre, abacaxi, maçã, gengibre e água de coco para um smoothie refrescante e cheio de nutrientes.</p>
 
-    // Calculadora de IMC
-    function calcularIMC() {
-        var peso = document.getElementById("imc-weight").value;
-        var altura = document.getElementById("imc-height").value;
-        
-        if (peso > 0 && altura > 0) {
-            var imc = peso / (altura * altura);
-            var classificacao = "";
-
-            if (imc < 18.5) classificacao = "Abaixo do peso";
-            else if (imc < 24.9) classificacao = "Peso normal";
-            else if (imc < 29.9) classificacao = "Sobrepeso";
-            else classificacao = "Obesidade";
-
-            document.getElementById("resultado-imc").innerText = "Seu IMC é " + imc.toFixed(2) + " (" + classificacao + ")";
-        } else {
-            document.getElementById("resultado-imc").innerText = "Por favor, insira valores válidos.";
-        }
-    }
-
-    // Calculadora de Calorias Diárias
-    function calcularCalorias() {
-        var peso = document.getElementById("cal-weight").value;
-        var altura = document.getElementById("cal-height").value;
-        var idade = document.getElementById("cal-age").value;
-        var genero = document.getElementById("cal-gender").value;
-
-        if (peso > 0 && altura > 0 && idade > 0) {
-            var tmb;
-            if (genero === "male") {
-                tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade);
-            } else {
-                tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade);
-            }
-            document.getElementById("resultado-calorias").innerText = "Sua necessidade calórica diária é aproximadamente " + tmb.toFixed(2) + " kcal.";
-        } else {
-            document.getElementById("resultado-calorias").innerText = "Preencha todos os campos corretamente.";
-        }
-    }
-</script>
+    <h3>3️⃣ Frango Grelhado com Legumes</h3>
+    <p>🍗 Grelhe peito de frango e sirva com legumes assados (cenoura, abobrinha, brócolis). Perfeito para uma alimentação equilibrada.</p>
+</section>
 
 </body>
 </html>
