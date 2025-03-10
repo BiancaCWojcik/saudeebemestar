@@ -16,74 +16,8 @@
 </head>
 <body>
 
-    <section class="section">
-        <h2>🩺 Dicas de Saúde para o Dia a Dia</h2>
-        <ul>
-            <li>🥦 <strong>Coma alimentos ricos em fibras:</strong> Grãos integrais, frutas e vegetais ajudam na digestão.</li>
-            <li>🏃 <strong>Fique em movimento:</strong> Exercícios diários melhoram a saúde geral.</li>
-            <li>🍟 <strong>Evite gorduras saturadas:</strong> Reduza frituras e fast food.</li>
-            <li>⚖️ <strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz riscos de doenças.</li>
-            <li>🌞 <strong>Não esqueça do sol:</strong> 10-15 minutos de sol ajudam na produção de vitamina D.</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>⚕️ Prevenção de Doenças Comuns</h2>
-        <h3>1️⃣ Hipertensão (Pressão Alta)</h3>
-        <p>Evite excesso de sal e pratique exercícios para manter a pressão controlada. 🏋️</p>
-
-        <h3>2️⃣ Diabetes Tipo 2</h3>
-        <p>Alimentação saudável e controle do peso são fundamentais para prevenção. 🍏</p>
-
-        <h3>3️⃣ Doenças Cardiovasculares</h3>
-        <p>Evite fumar, controle o colesterol e pratique exercícios. ❤️‍🔥</p>
-
-        <h3>4️⃣ Doenças Respiratórias</h3>
-        <p>Evite poluentes, mantenha a casa ventilada e faça exercícios respiratórios. 🌬️</p>
-    </section>
-
-    <section class="section">
-        <h2>🧘‍♂️ Saúde Mental: A Importância do Equilíbrio Emocional</h2>
-        <ul>
-            <li>🧘‍♀️ <strong>Pratique meditação:</strong> Reduz o estresse e melhora o foco.</li>
-            <li>😴 <strong>Durma bem:</strong> 7-8 horas de sono por noite são essenciais.</li>
-            <li>💬 <strong>Converse com alguém:</strong> Compartilhar emoções ajuda a aliviar o estresse.</li>
-            <li>🤝 <strong>Evite o isolamento:</strong> Relacionamentos sociais são fundamentais para o bem-estar.</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>🍽️ Receitas Saudáveis para o Seu Bem-Estar</h2>
-        <h3>🥗 Salada Colorida de Quinoa</h3>
-        <p>Quinoa com tomate, pepino, cenoura e ervas frescas, temperada com azeite e limão.</p>
-
-        <h3>🥤 Smoothie Verde Energético</h3>
-        <p>Bata espinafre, abacaxi, maçã, gengibre e água de coco para um smoothie saudável.</p>
-
-        <h3>🍗 Frango Grelhado com Legumes</h3>
-        <p>Peito de frango grelhado com legumes assados como cenoura, abobrinha e brócolis.</p>
-    </section>
-
     <section class="section calculator">
         <h2>🧮 Calculadoras de Saúde</h2>
-
-        <div>
-            <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoIMC">
-            <label>Altura (m):</label>
-            <input type="number" step="0.01" id="alturaIMC">
-            <button onclick="calcularIMC()">Calcular</button>
-            <p id="resultadoIMC"></p>
-        </div>
-
-        <div>
-            <h3>❤️ Frequência Cardíaca Máxima</h3>
-            <label>Idade:</label>
-            <input type="number" id="idadeFCM">
-            <button onclick="calcularFCM()">Calcular</button>
-            <p id="resultadoFCM"></p>
-        </div>
 
         <div>
             <h3>💧 Cálculo da Ingestão Diária de Água</h3>
@@ -92,30 +26,36 @@
             <button onclick="calcularAgua()">Calcular</button>
             <p id="resultadoAgua"></p>
         </div>
+
+        <div>
+            <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoIMC">
+            <label>Altura (cm):</label>
+            <input type="number" id="alturaIMC">
+            <button onclick="calcularIMC()">Calcular</button>
+            <p id="resultadoIMC"></p>
+        </div>
+
+        <div>
+            <h3>🔥 Calculadora de Calorias Diárias</h3>
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoCalorias">
+            <label>Altura (cm):</label>
+            <input type="number" id="alturaCalorias">
+            <label>Idade:</label>
+            <input type="number" id="idadeCalorias">
+            <label>Gênero:</label>
+            <select id="generoCalorias">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <button onclick="calcularCalorias()">Calcular</button>
+            <p id="resultadoCalorias"></p>
+        </div>
     </section>
 
     <script>
-        function calcularIMC() {
-            let peso = document.getElementById("pesoIMC").value;
-            let altura = document.getElementById("alturaIMC").value;
-            if (peso && altura) {
-                let imc = (peso / (altura * altura)).toFixed(2);
-                document.getElementById("resultadoIMC").innerText = `Seu IMC é: ${imc}`;
-            } else {
-                document.getElementById("resultadoIMC").innerText = "Preencha os valores corretamente.";
-            }
-        }
-
-        function calcularFCM() {
-            let idade = document.getElementById("idadeFCM").value;
-            if (idade) {
-                let fcm = 220 - idade;
-                document.getElementById("resultadoFCM").innerText = `Sua frequência cardíaca máxima é: ${fcm} bpm`;
-            } else {
-                document.getElementById("resultadoFCM").innerText = "Preencha sua idade corretamente.";
-            }
-        }
-
         function calcularAgua() {
             let peso = document.getElementById("pesoAgua").value;
             if (peso) {
@@ -123,6 +63,38 @@
                 document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
             } else {
                 document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
+            }
+        }
+
+        function calcularIMC() {
+            let peso = document.getElementById("pesoIMC").value;
+            let altura = document.getElementById("alturaIMC").value;
+            if (peso && altura) {
+                let alturaMetros = altura / 100; // Convertendo cm para metros
+                let imc = (peso / (alturaMetros * alturaMetros)).toFixed(2);
+                document.getElementById("resultadoIMC").innerText = `Seu IMC é: ${imc}`;
+            } else {
+                document.getElementById("resultadoIMC").innerText = "Preencha os valores corretamente.";
+            }
+        }
+
+        function calcularCalorias() {
+            let peso = document.getElementById("pesoCalorias").value;
+            let altura = document.getElementById("alturaCalorias").value;
+            let idade = document.getElementById("idadeCalorias").value;
+            let genero = document.getElementById("generoCalorias").value;
+
+            if (peso && altura && idade) {
+                let tmb;
+                if (genero === "masculino") {
+                    tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade);
+                } else {
+                    tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade);
+                }
+
+                document.getElementById("resultadoCalorias").innerText = `Sua necessidade calórica diária é de aproximadamente ${tmb.toFixed(2)} kcal. 🔥`;
+            } else {
+                document.getElementById("resultadoCalorias").innerText = "Preencha todos os campos corretamente.";
             }
         }
     </script>
