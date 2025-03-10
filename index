@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site sobre saúde e prevenção, com dicas para uma vida saudável.">
+    <meta name="author" content="Bianca Caroline Wojcik">
+    <title>Cuide da Sua Saúde</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7f3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #19827b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        .section-title {
+            color: #19827b;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        footer {
+            background-color: #00a28e;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        a {
+            color: #25b9b0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            background-color: #19827b;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            display: inline-block;
+            font-size: 1.2em;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #00a28e;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cuide da Sua Saúde</h1>
+        <p>Prevenção é o melhor caminho para uma vida saudável!</p>
+    </header>
+
+    <main>
+        <section class="content">
+            <h2 class="section-title">O que você pode fazer:</h2>
+            <ul>
+                <li>Faça exames regulares.</li>
+                <li>Vacine-se e mantenha as vacinas em dia.</li>
+                <li>Tenha uma alimentação balanceada.</li>
+                <li>Pratique 30 minutos de exercício diariamente.</li>
+                <li>Durma bem para recuperar as energias.</li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">Dicas para sua saúde:</h2>
+            <ul>
+                <li>Beba muita água para manter seu corpo hidratado.</li>
+                <li>Reduza o estresse com atividades relaxantes como meditação ou yoga.</li>
+                <li>Mantenha-se ativo, escolha uma atividade que você goste.</li>
+                <li>Evite o consumo excessivo de alimentos processados.</li>
+                <li>Cuide da sua saúde mental, reserve um tempo para relaxar.</li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">Aprenda mais sobre saúde:</h2>
+            <p>Saúde é um bem precioso e precisa de cuidados constantes. É importante prevenir doenças antes que elas apareçam, praticar hábitos saudáveis no dia a dia e buscar orientação profissional sempre que necessário.</p>
+            <p>Visite o nosso site para mais dicas e informações sobre cuidados com sua saúde!</p>
+            <a href="#" class="button">Acesse o Site</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Bianca Caroline Wojcik. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
