@@ -3,122 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site sobre saúde e prevenção, com dicas para uma vida saudável.">
-    <meta name="author" content="Bianca Caroline Wojcik">
-    <title>Cuide da Sua Saúde</title>
+    <title>Saúde e Bem-Estar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e6f7f3;
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
         }
+
         header {
             background-color: #19827b;
-            color: #fff;
-            padding: 20px;
+            color: white;
             text-align: center;
+            padding: 20px;
         }
-        header h1 {
+
+        h1 {
+            font-size: 36px;
             margin: 0;
         }
-        main {
-            padding: 20px;
-        }
-        .section-title {
-            color: #19827b;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        .content {
-            background-color: #ffffff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        footer {
+
+        nav {
             background-color: #00a28e;
-            color: #fff;
             text-align: center;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
-        a {
-            color: #25b9b0;
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
             text-decoration: none;
+            display: inline-block;
         }
-        a:hover {
-            text-decoration: underline;
+
+        nav a:hover {
+            background-color: #25b9b0;
         }
-        .button {
+
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #19827b;
+        }
+
+        .tips, .diseases, .calculator {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
             background-color: #19827b;
             color: white;
-            padding: 15px 30px;
             text-align: center;
-            display: inline-block;
-            font-size: 1.2em;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-decoration: none;
+            padding: 15px;
         }
-        .button:hover {
-            background-color: #00a28e;
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .calculator button {
+            background-color: #25b9b0;
+            color: white;
+            border: none;
+        }
+
+        .calculator button:hover {
+            background-color: #19827b;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Cuide da Sua Saúde</h1>
-        <p>Prevenção é o melhor caminho para uma vida saudável!</p>
-    </header>
+<header>
+    <h1>Saúde e Bem-Estar para Todos</h1>
+</header>
 
-    <main>
-        <section class="content">
-            <h2 class="section-title">O que você pode fazer:</h2>
+<nav>
+    <a href="#calculator">Calculadora de Água</a>
+    <a href="#tips">Dicas de Saúde</a>
+    <a href="#diseases">Doenças Comuns</a>
+</nav>
+
+<div class="content">
+
+    <section id="calculator" class="section">
+        <h2>Calculadora de Ingestão de Água</h2>
+        <p>Saiba a quantidade ideal de água que você deve beber diariamente com base no seu peso!</p>
+        <div class="calculator">
+            <label for="weight">Digite seu peso (kg):</label>
+            <input type="number" id="weight" placeholder="Ex: 70">
+            <button onclick="calcularAgua()">Calcular</button>
+            <p id="resultado"></p>
+        </div>
+    </section>
+
+    <section id="tips" class="section">
+        <h2>Dicas de Saúde</h2>
+        <div class="tips">
             <ul>
-                <li>Faça exames regulares.</li>
-                <li>Vacine-se e mantenha as vacinas em dia.</li>
-                <li>Tenha uma alimentação balanceada.</li>
-                <li>Pratique 30 minutos de exercício diariamente.</li>
-                <li>Durma bem para recuperar as energias.</li>
+                <li><strong>Beba muita água:</strong> Manter-se hidratado é essencial para o funcionamento adequado do corpo. A água ajuda na digestão, circulação e até na pele!</li>
+                <li><strong>Pratique atividade física:</strong> Exercícios regulares não apenas melhoram a saúde física, mas também reduzem o estresse e melhoram o humor.</li>
+                <li><strong>Alimente-se bem:</strong> Evite alimentos processados. Consuma alimentos naturais, como frutas, legumes e proteínas magras.</li>
+                <li><strong>Cuidado com a saúde mental:</strong> Medite, pratique atividades relaxantes ou converse com alguém de confiança quando necessário. Sua mente também precisa de cuidado!</li>
             </ul>
-        </section>
+        </div>
+    </section>
 
-        <section class="content">
-            <h2 class="section-title">Dicas para sua saúde:</h2>
-            <ul>
-                <li>Beba muita água para manter seu corpo hidratado.</li>
-                <li>Reduza o estresse com atividades relaxantes como meditação ou yoga.</li>
-                <li>Mantenha-se ativo, escolha uma atividade que você goste.</li>
-                <li>Evite o consumo excessivo de alimentos processados.</li>
-                <li>Cuide da sua saúde mental, reserve um tempo para relaxar.</li>
-            </ul>
-        </section>
+    <section id="diseases" class="section">
+        <h2>Doenças Comuns e Como Prevenir</h2>
+        <div class="diseases">
+            <h3>1. Hipertensão</h3>
+            <p>Manter uma alimentação saudável, com redução de sal, e praticar exercícios físicos regularmente pode ajudar a prevenir a hipertensão.</p>
 
-        <section class="content">
-            <h2 class="section-title">Aprenda mais sobre saúde:</h2>
-            <p>Saúde é um bem precioso e precisa de cuidados constantes. É importante prevenir doenças antes que elas apareçam, praticar hábitos saudáveis no dia a dia e buscar orientação profissional sempre que necessário.</p>
-            <p>Visite o nosso site para mais dicas e informações sobre cuidados com sua saúde!</p>
-            <a href="#" class="button">Acesse o Site</a>
-        </section>
-    </main>
+            <h3>2. Diabetes</h3>
+            <p>Evitar o consumo excessivo de açúcar, manter um peso saudável e praticar atividades físicas regularmente são formas eficazes de prevenir o diabetes tipo 2.</p>
 
-    <footer>
-        <p>© 2025 Bianca Caroline Wojcik. Todos os direitos reservados.</p>
-    </footer>
+            <h3>3. Depressão</h3>
+            <p>Atividades como caminhar ao ar livre, conversar com amigos e reservar um tempo para relaxamento são ótimas formas de reduzir os riscos de depressão.</p>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2025 Saúde e Bem-Estar. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function calcularAgua() {
+        var peso = document.getElementById("weight").value;
+        if (peso && peso > 0) {
+            var resultado = peso * 35;
+            document.getElementById("resultado").innerText = "Você deve beber " + resultado + " ml de água por dia.";
+        } else {
+            document.getElementById("resultado").innerText = "Por favor, insira um peso válido.";
+        }
+    }
+</script>
 
 </body>
 </html>
