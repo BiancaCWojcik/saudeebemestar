@@ -17,7 +17,7 @@
             background-color: #19827b;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
         }
 
         h1 {
@@ -43,7 +43,7 @@
         }
 
         .content {
-            padding: 20px;
+            padding: 30px;
             max-width: 1200px;
             margin: auto;
         }
@@ -54,9 +54,10 @@
 
         .section h2 {
             color: #19827b;
+            font-size: 28px;
         }
 
-        .tips, .diseases, .calculator {
+        .tips, .diseases, .calculator, .mental-health {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -86,6 +87,11 @@
         .calculator button:hover {
             background-color: #19827b;
         }
+
+        .mental-health ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -97,17 +103,18 @@
 <nav>
     <a href="#calculator">Calculadora de Água</a>
     <a href="#tips">Dicas de Saúde</a>
-    <a href="#diseases">Doenças Comuns</a>
+    <a href="#diseases">Prevenção de Doenças</a>
+    <a href="#mental-health">Saúde Mental</a>
 </nav>
 
 <div class="content">
 
     <section id="calculator" class="section">
         <h2>Calculadora de Ingestão de Água</h2>
-        <p>Saiba a quantidade ideal de água que você deve beber diariamente com base no seu peso!</p>
+        <p>Descubra a quantidade ideal de água que você deve beber diariamente com base no seu peso!</p>
         <div class="calculator">
             <label for="weight">Digite seu peso (kg):</label>
-            <input type="number" id="weight" placeholder="Ex: 70">
+            <input type="number" id="weight" placeholder="Exemplo: 70">
             <button onclick="calcularAgua()">Calcular</button>
             <p id="resultado"></p>
         </div>
@@ -117,25 +124,43 @@
         <h2>Dicas de Saúde</h2>
         <div class="tips">
             <ul>
-                <li><strong>Beba muita água:</strong> Manter-se hidratado é essencial para o funcionamento adequado do corpo. A água ajuda na digestão, circulação e até na pele!</li>
-                <li><strong>Pratique atividade física:</strong> Exercícios regulares não apenas melhoram a saúde física, mas também reduzem o estresse e melhoram o humor.</li>
-                <li><strong>Alimente-se bem:</strong> Evite alimentos processados. Consuma alimentos naturais, como frutas, legumes e proteínas magras.</li>
-                <li><strong>Cuidado com a saúde mental:</strong> Medite, pratique atividades relaxantes ou converse com alguém de confiança quando necessário. Sua mente também precisa de cuidado!</li>
+                <li><strong>Beba água regularmente:</strong> A água ajuda na digestão, regulação da temperatura corporal, transporte de nutrientes e mantém a pele saudável.</li>
+                <li><strong>Coma alimentos frescos:</strong> Inclua frutas, legumes, verduras e grãos integrais na sua alimentação. Evite alimentos processados e excessivamente gordurosos.</li>
+                <li><strong>Durma bem:</strong> O sono é essencial para recuperação física e mental. Tente dormir entre 7 e 9 horas por noite para um descanso adequado.</li>
+                <li><strong>Pratique atividades físicas:</strong> Faça pelo menos 30 minutos de atividades físicas por dia. Caminhada, corrida, yoga, ou dança são ótimas opções.</li>
+                <li><strong>Reduza o estresse:</strong> Encontre maneiras de relaxar e descontrair. A meditação, a leitura e o lazer são ótimos aliados.</li>
             </ul>
         </div>
     </section>
 
     <section id="diseases" class="section">
-        <h2>Doenças Comuns e Como Prevenir</h2>
+        <h2>Prevenção de Doenças Comuns</h2>
         <div class="diseases">
-            <h3>1. Hipertensão</h3>
-            <p>Manter uma alimentação saudável, com redução de sal, e praticar exercícios físicos regularmente pode ajudar a prevenir a hipertensão.</p>
+            <h3>1. Hipertensão (Pressão Alta)</h3>
+            <p>A hipertensão pode ser controlada com uma dieta balanceada, redução de sal, prática regular de exercícios e controle do estresse.</p>
 
-            <h3>2. Diabetes</h3>
-            <p>Evitar o consumo excessivo de açúcar, manter um peso saudável e praticar atividades físicas regularmente são formas eficazes de prevenir o diabetes tipo 2.</p>
+            <h3>2. Diabetes Tipo 2</h3>
+            <p>Manter o peso saudável e evitar alimentos ricos em açúcar é essencial. A prática regular de atividades físicas também ajuda no controle da glicose.</p>
 
-            <h3>3. Depressão</h3>
-            <p>Atividades como caminhar ao ar livre, conversar com amigos e reservar um tempo para relaxamento são ótimas formas de reduzir os riscos de depressão.</p>
+            <h3>3. Câncer</h3>
+            <p>A prevenção do câncer inclui evitar o tabagismo, consumo excessivo de álcool e exposição ao sol sem proteção. Dietas ricas em fibras também podem ajudar.</p>
+
+            <h3>4. Doenças Respiratórias</h3>
+            <p>A prática de exercícios respiratórios e a manutenção de um ambiente saudável e limpo são fundamentais para a prevenção de doenças respiratórias.</p>
+        </div>
+    </section>
+
+    <section id="mental-health" class="section">
+        <h2>Saúde Mental</h2>
+        <div class="mental-health">
+            <h3>Cuide da sua mente!</h3>
+            <p>A saúde mental é tão importante quanto a saúde física. Aqui estão algumas dicas para manter sua mente saudável:</p>
+            <ul>
+                <li><strong>Pratique atividades relaxantes:</strong> Meditação, yoga e caminhadas ao ar livre são ótimas para reduzir o estresse.</li>
+                <li><strong>Fale sobre seus sentimentos:</strong> Conversar com amigos ou procurar um terapeuta pode ajudar a aliviar o peso emocional.</li>
+                <li><strong>Reserve um tempo para si mesmo:</strong> Faça atividades que você goste e que ajudem a relaxar, como hobbies, leitura ou assistir a filmes.</li>
+                <li><strong>Exercite-se:</strong> O exercício físico não só melhora o corpo, mas também libera hormônios que ajudam a reduzir a ansiedade e a depressão.</li>
+            </ul>
         </div>
     </section>
 
