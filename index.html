@@ -31,6 +31,56 @@
             padding-bottom: 10px;
         }
         
+        ul { 
+            list-style: none; 
+            padding: 0; 
+        }
+        
+        li { 
+            margin: 12px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1rem;
+        }
+        
+        li:before {
+            content: "•";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .calculator { 
+            margin-top: 20px; 
+            padding: 20px; 
+            background: #e8f5e9; 
+            border-radius: 8px; 
+        }
+        
+        input, button, select { 
+            padding: 12px;
+            margin-top: 10px; 
+            width: 100%; 
+            max-width: 400px; 
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        button { 
+            cursor: pointer; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover { 
+            background-color: #3d8b40; 
+        }
+        
         /* Estilos para lista de compras */
         .shopping-intro {
             font-size: 1.1rem;
@@ -129,14 +179,128 @@
         .whatsapp-btn {
             background-color: #25D366 !important;
         }
+        
+        .whatsapp-btn:hover {
+            background-color: #1DA851 !important;
+        }
+        
+        .image-btn {
+            background-color: #3498db !important;
+        }
+        
+        .image-btn:hover {
+            background-color: #2980b9 !important;
+        }
+
+        /* Responsividade */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 15px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .list-image {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Todas as seções originais permanecem aqui -->
-    <!-- ... -->
+    <section class="section">
+        <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
+        <ul>
+            <li><strong>Coma alimentos ricos em fibras:</strong> Alimentos como grãos integrais, frutas e vegetais ajudam na digestão e mantêm seu sistema imunológico forte.</li>
+            <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
+            <li><strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, alimentos industrializados e fast food.</li>
+            <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
+            <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
+        </ul>
+    </section>
 
-    <!-- Seção: Lista de Compras -->
+    <section class="section">
+        <h2>Prevenção de Doenças Comuns 🚑</h2>
+        <div class="diseases">
+            <h3>1. Hipertensão (Pressão Alta)</h3>
+            <p>A hipertensão é muitas vezes chamada de "assassino silencioso". Mantenha a pressão arterial sob controle com a prática de atividades físicas regulares, dieta balanceada e evitando o consumo excessivo de sal.</p>
+
+            <h3>2. Diabetes Tipo 2</h3>
+            <p>A diabetes tipo 2 é uma condição em que o corpo não consegue usar adequadamente a insulina. Prevenção envolve alimentação saudável, controle do peso e atividade física constante.</p>
+
+            <h3>3. Doenças Cardiovasculares</h3>
+            <p>Manter uma dieta saudável, praticar exercícios e evitar fumar são as melhores formas de prevenir doenças cardíacas. Controlar o colesterol e a pressão arterial também é essencial.</p>
+
+            <h3>4. Doenças Respiratórias</h3>
+            <p>Para prevenir doenças respiratórias, como a asma, evite poluentes, procure um ambiente com boa ventilação e realize exercícios respiratórios regularmente.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
+        <div class="mental-health">
+            <h3>Dicas para Cuidar da Sua Mente:</h3>
+            <ul>
+                <li><strong>Pratique a meditação:</strong> A meditação é uma ótima maneira de reduzir o estresse e melhorar o foco mental.</li>
+                <li><strong>Durma o suficiente:</strong> Dormir entre 7 a 8 horas por noite é fundamental para manter a saúde mental em equilíbrio.</li>
+                <li><strong>Converse com alguém:</strong> Falar com amigos, familiares ou até um terapeuta pode ajudar a aliviar o peso emocional.</li>
+                <li><strong>Evite o isolamento:</strong> Interaja com outras pessoas, mantenha relações sociais e participe de atividades comunitárias.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
+        <div class="healthy-recipes">
+            <h3>Receita 1: Salada Colorida de Quinoa 🥗</h3>
+            <p>Uma refeição nutritiva e cheia de fibras! Prepare a quinoa e misture com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Uma excelente opção para o almoço.</p>
+
+            <h3>Receita 2: Smoothie Verde Energético 🍹</h3>
+            <p>Uma bebida refrescante e cheia de nutrientes. Bata espinafre, abacaxi, maçã, gengibre e um pouco de água de coco para um smoothie delicioso e saudável.</p>
+
+            <h3>Receita 3: Frango Grelhado com Legumes 🍗</h3>
+            <p>Um prato saudável e fácil de fazer. Grelhe peito de frango e acompanhe com legumes assados (cenoura, abobrinha, brócolis). A combinação ideal para uma alimentação equilibrada.</p>
+        </div>
+    </section>
+
+    <section class="section calculator">
+        <h2>🧮 Calculadoras de Saúde</h2>
+
+        <div class="calculator">
+            <h3>💧 Cálculo da Ingestão Diária de Água</h3>
+            <input type="number" id="pesoAgua" placeholder="Digite seu peso (kg)">
+            <button onclick="calcularAgua()">Calcular</button>
+            <p id="resultadoAgua"></p>
+        </div>
+
+        <div class="calculator">
+            <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
+            <input type="number" id="pesoIMC" placeholder="Digite seu peso (kg)">
+            <input type="number" id="alturaIMC" placeholder="Digite sua altura (cm)">
+            <button onclick="calcularIMC()">Calcular</button>
+            <p id="resultadoIMC"></p>
+        </div>
+
+        <div class="calculator">
+            <h3>🔥 Calculadora de Calorias Diárias</h3>
+            <input type="number" id="pesoCalorias" placeholder="Digite seu peso (kg)">
+            <input type="number" id="alturaCalorias" placeholder="Digite sua altura (cm)">
+            <input type="number" id="idadeCalorias" placeholder="Digite sua idade">
+            <select id="generoCalorias">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <button onclick="calcularCalorias()">Calcular</button>
+            <p id="resultadoCalorias"></p>
+        </div>
+    </section>
+
     <section class="section">
         <h2>🛒 Lista de Compras Saudáveis</h2>
         <p class="shopping-intro">"Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento."</p>
@@ -151,7 +315,7 @@
             <div class="total">Total estimado: R$ <span id="totalValue">0.00</span></div>
             
             <div class="action-buttons">
-                <button onclick="saveAsImage()">Salvar como Imagem</button>
+                <button onclick="saveAsImage()" class="image-btn">Salvar como Imagem</button>
                 <button onclick="shareOnWhatsApp()" class="whatsapp-btn">Enviar por WhatsApp</button>
             </div>
             
@@ -180,7 +344,113 @@
     </div>
 
     <script>
-        // ... (funções anteriores permanecem iguais) ...
+        // Funções das calculadoras de saúde
+        function calcularAgua() {
+            let peso = document.getElementById("pesoAgua").value;
+            if (peso) {
+                let agua = (peso * 35) / 1000;
+                document.getElementById("resultadoAgua").innerHTML = `Você deve beber cerca de <strong>${agua.toFixed(2)} litros</strong> de água por dia. 💧`;
+            } else {
+                document.getElementById("resultadoAgua").textContent = "Informe seu peso corretamente.";
+            }
+        }
+
+        function calcularIMC() {
+            let peso = document.getElementById("pesoIMC").value;
+            let altura = document.getElementById("alturaIMC").value;
+            if (peso && altura) {
+                altura = altura / 100;
+                let imc = peso / (altura * altura);
+                let categoria = "";
+                if (imc < 18.5) categoria = "Abaixo do peso";
+                else if (imc >= 18.5 && imc < 24.9) categoria = "Peso normal";
+                else if (imc >= 25 && imc < 29.9) categoria = "Sobrepeso";
+                else categoria = "Obesidade";
+                document.getElementById("resultadoIMC").innerHTML = `Seu IMC é <strong>${imc.toFixed(2)}</strong>. Categoria: ${categoria}`;
+            } else {
+                document.getElementById("resultadoIMC").textContent = "Informe o peso e a altura corretamente.";
+            }
+        }
+
+        function calcularCalorias() {
+            let peso = document.getElementById("pesoCalorias").value;
+            let altura = document.getElementById("alturaCalorias").value;
+            let idade = document.getElementById("idadeCalorias").value;
+            let genero = document.getElementById("generoCalorias").value;
+
+            if (peso && altura && idade) {
+                let tmb;
+                if (genero === "masculino") {
+                    tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
+                } else {
+                    tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
+                }
+                let calorias = tmb * 1.2;
+                document.getElementById("resultadoCalorias").innerHTML = `Você deve consumir aproximadamente <strong>${calorias.toFixed(2)} calorias</strong> por dia.`;
+            } else {
+                document.getElementById("resultadoCalorias").textContent = "Por favor, preencha todos os campos corretamente.";
+            }
+        }
+
+        // Sistema de lista de compras
+        let items = [];
+        let total = 0;
+
+        function addItem() {
+            const name = document.getElementById("itemName").value.trim();
+            const price = parseFloat(document.getElementById("itemPrice").value);
+            const quantity = parseInt(document.getElementById("itemQuantity").value);
+
+            if (name && !isNaN(price) && !isNaN(quantity) && price > 0 && quantity > 0) {
+                const itemTotal = price * quantity;
+                items.push({ name, price, quantity, itemTotal });
+                total += itemTotal;
+                
+                updateItemsList();
+                updateTotal();
+                
+                // Limpar campos
+                document.getElementById("itemName").value = "";
+                document.getElementById("itemPrice").value = "";
+                document.getElementById("itemQuantity").value = "";
+            } else {
+                alert("Por favor, preencha todos os campos com valores válidos.");
+            }
+        }
+
+        function updateItemsList() {
+            const container = document.getElementById("itemsContainer");
+            container.innerHTML = "";
+            
+            if (items.length === 0) {
+                container.innerHTML = '<p style="color:#666; text-align:center;">Nenhum item adicionado ainda</p>';
+                return;
+            }
+            
+            items.forEach((item, index) => {
+                const itemElement = document.createElement("div");
+                itemElement.className = "item";
+                itemElement.innerHTML = `
+                    <span>${item.name} - ${item.quantity}x (R$ ${item.price.toFixed(2)})</span>
+                    <span>
+                        R$ ${item.itemTotal.toFixed(2)}
+                        <button class="remove-btn" onclick="removeItem(${index})">Remover</button>
+                    </span>
+                `;
+                container.appendChild(itemElement);
+            });
+        }
+
+        function removeItem(index) {
+            total -= items[index].itemTotal;
+            items.splice(index, 1);
+            updateItemsList();
+            updateTotal();
+        }
+
+        function updateTotal() {
+            document.getElementById("totalValue").textContent = total.toFixed(2);
+        }
 
         // Função para atualizar a lista na imagem
         function updateImageList() {
@@ -234,27 +504,34 @@
             
             html2canvas(document.getElementById("listToImage")).then(canvas => {
                 canvas.toBlob(function(blob) {
-                    const file = new File([blob], "lista-compras.png", { type: "image/png" });
-                    
-                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                        navigator.share({
-                            files: [file],
-                            title: 'Minha Lista de Compras Saudável',
-                            text: 'Confira minha lista de compras saudáveis!'
-                        })
-                        .catch(error => console.log('Erro ao compartilhar:', error));
-                    } else {
-                        // Fallback para link do WhatsApp
-                        let message = "*Minha Lista de Compras Saudável*\n\n";
-                        items.forEach(item => {
-                            message += `- ${item.quantity}x ${item.name}: R$ ${item.itemTotal.toFixed(2)}\n`;
-                        });
-                        message += `\n*Total: R$ ${total.toFixed(2)}*`;
-                        message += "\n\n🍎 Compre com consciência e cuide da sua saúde! 🥦";
+                    // Tenta usar a API de compartilhamento nativo
+                    if (navigator.share && navigator.canShare) {
+                        const file = new File([blob], "lista-compras.png", { type: "image/png" });
                         
-                        const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-                        window.open(url, '_blank');
+                        if (navigator.canShare({ files: [file] })) {
+                            navigator.share({
+                                files: [file],
+                                title: 'Minha Lista de Compras Saudável',
+                                text: 'Confira minha lista de compras saudáveis!'
+                            })
+                            .catch(error => console.log('Erro ao compartilhar:', error));
+                            return;
+                        }
                     }
+                    
+                    // Fallback para link do WhatsApp
+                    let message = "*🛒 Minha Lista de Compras Saudável*\n";
+                    message += `📅 Data: ${new Date().toLocaleDateString('pt-BR')}\n\n`;
+                    
+                    items.forEach(item => {
+                        message += `➡ ${item.quantity}x ${item.name}: R$ ${item.itemTotal.toFixed(2)}\n`;
+                    });
+                    
+                    message += `\n*💰 Total: R$ ${total.toFixed(2)}*\n\n`;
+                    message += "🍎 Compre com consciência e cuide da sua saúde! 🥦";
+                    
+                    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+                    window.open(url, '_blank');
                 });
             });
         }
