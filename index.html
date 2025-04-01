@@ -1,277 +1,371 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde e Bem-Estar 🏥💙</title>
+    <title>Saúde Financeira e Bem-Estar 🏥💙 | ODS 3</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 20px; 
-            background-color: #f4f4f4; 
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2c3e50;
+            --accent-color: #3498db;
         }
+        
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0;
+            padding: 20px; 
+            background-color: #f8f9fa; 
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2ecc71);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .header-title {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .ods-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
         .section { 
             background: white; 
-            padding: 20px; 
-            margin-bottom: 20px; 
+            padding: 25px; 
+            margin-bottom: 25px; 
             border-radius: 8px; 
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-color);
         }
+        
         h2 { 
-            color: #2c3e50; 
+            color: var(--secondary-color); 
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
+        
         ul { 
             list-style: none; 
             padding: 0; 
         }
+        
         li { 
-            margin: 10px 0; 
+            margin: 15px 0;
+            padding-left: 20px;
+            position: relative;
         }
+        
+        li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
         .calculator { 
             margin-top: 20px; 
-            padding: 15px; 
-            background: #e3f2fd; 
+            padding: 20px; 
+            background: #e8f5e9; 
             border-radius: 8px; 
+            border: 1px solid #c8e6c9;
         }
-        input, button { 
-            padding: 8px; 
-            margin-top: 5px; 
+        
+        input, button, select { 
+            padding: 12px;
+            margin-top: 8px; 
             width: 100%; 
             max-width: 400px; 
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
         }
+        
         button { 
             cursor: pointer; 
-            background-color: #4CAF50; 
+            background-color: var(--primary-color); 
             color: white; 
             border: none; 
-            border-radius: 4px; 
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
+        
         button:hover { 
-            background-color: #45a049; 
+            background-color: #3d8b40; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        p { 
-            font-size: 1.1rem; 
-            color: #333; 
+        
+        .tip-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
         }
-
-        /* Estilos específicos para a lista de compras */
+        
+        /* Estilos para lista de compras */
+        .shopping-intro {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
         .shopping-list {
             margin-top: 20px;
         }
-        .shopping-list input {
-            margin-bottom: 10px;
+        
+        .item-input {
+            margin-bottom: 15px;
+            transition: border 0.3s;
         }
+        
+        .item-input:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        
         #itemsContainer {
-            margin-top: 15px;
+            margin-top: 20px;
         }
+        
         .item {
             display: flex;
             justify-content: space-between;
-            padding: 8px;
+            align-items: center;
+            padding: 12px;
             border-bottom: 1px solid #eee;
+            transition: background 0.3s;
         }
+        
+        .item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .remove-btn {
+            background-color: #e74c3c;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .remove-btn:hover {
+            background-color: #c0392b;
+        }
+        
         .total {
             font-weight: bold;
-            margin-top: 10px;
-            font-size: 1.2rem;
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            text-align: right;
+        }
+        
+        .finance-tip {
+            background-color: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
         }
 
-        /* Responsividade para dispositivos móveis */
+        /* Responsividade */
         @media screen and (max-width: 600px) {
-            .section { padding: 15px; }
-            h2 { font-size: 1.5rem; }
-            input, button { width: 100%; }
-            .calculator { padding: 12px; }
+            .header-title {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            input, button, select {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <h1 class="header-title">Saúde Financeira e Bem-Estar</h1>
+        <p class="header-subtitle">Equilibre seu orçamento e sua qualidade de vida</p>
+        <span class="ods-badge">ODS 3 - Saúde e Bem-Estar</span>
+    </header>
+
     <section class="section">
-        <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
+        <h2>Dicas para uma Vida Saudável 🌱</h2>
         <ul>
-            <li><strong>Coma alimentos ricos em fibras:</strong> Alimentos como grãos integrais, frutas e vegetais ajudam na digestão e mantêm seu sistema imunológico forte.</li>
-            <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
-            <li><strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, alimentos industrializados e fast food.</li>
-            <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
-            <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
+            <li><strong>Alimentação balanceada:</strong> Invista em alimentos nutritivos que trazem saúde e reduzem gastos com medicamentos.</li>
+            <li><strong>Atividade física regular:</strong> Caminhadas e exercícios em casa são gratuitos e essenciais para prevenir doenças.</li>
+            <li><strong>Controle financeiro preventivo:</strong> Assim como fazemos check-ups médicos, devemos monitorar nossa saúde financeira.</li>
         </ul>
-    </section>
-
-    <section class="section">
-        <h2>Prevenção de Doenças Comuns 🚑</h2>
-        <div class="diseases">
-            <h3>1. Hipertensão (Pressão Alta)</h3>
-            <p>A hipertensão é muitas vezes chamada de "assassino silencioso". Mantenha a pressão arterial sob controle com a prática de atividades físicas regulares, dieta balanceada e evitando o consumo excessivo de sal.</p>
-
-            <h3>2. Diabetes Tipo 2</h3>
-            <p>A diabetes tipo 2 é uma condição em que o corpo não consegue usar adequadamente a insulina. Prevenção envolve alimentação saudável, controle do peso e atividade física constante.</p>
-
-            <h3>3. Doenças Cardiovasculares</h3>
-            <p>Manter uma dieta saudável, praticar exercícios e evitar fumar são as melhores formas de prevenir doenças cardíacas. Controlar o colesterol e a pressão arterial também é essencial.</p>
-
-            <h3>4. Doenças Respiratórias</h3>
-            <p>Para prevenir doenças respiratórias, como a asma, evite poluentes, procure um ambiente com boa ventilação e realize exercícios respiratórios regularmente.</p>
+        
+        <div class="tip-box">
+            <strong>💡 Dica de Contabilidade:</strong> Manter um registro de gastos com saúde pode ajudar no planejamento tributário e no controle do orçamento familiar.
         </div>
     </section>
 
     <section class="section">
-        <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
-        <div class="mental-health">
-            <h3>Dicas para Cuidar da Sua Mente:</h3>
-            <ul>
-                <li><strong>Pratique a meditação:</strong> A meditação é uma ótima maneira de reduzir o estresse e melhorar o foco mental.</li>
-                <li><strong>Durma o suficiente:</strong> Dormir entre 7 a 8 horas por noite é fundamental para manter a saúde mental em equilíbrio.</li>
-                <li><strong>Converse com alguém:</strong> Falar com amigos, familiares ou até um terapeuta pode ajudar a aliviar o peso emocional.</li>
-                <li><strong>Evite o isolamento:</strong> Interaja com outras pessoas, mantenha relações sociais e participe de atividades comunitárias.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
-        <div class="healthy-recipes">
-            <h3>Receita 1: Salada Colorida de Quinoa 🥗</h3>
-            <p>Uma refeição nutritiva e cheia de fibras! Prepare a quinoa e misture com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Uma excelente opção para o almoço.</p>
-
-            <h3>Receita 2: Smoothie Verde Energético 🍹</h3>
-            <p>Uma bebida refrescante e cheia de nutrientes. Bata espinafre, abacaxi, maçã, gengibre e um pouco de água de coco para um smoothie delicioso e saudável.</p>
-
-            <h3>Receita 3: Frango Grelhado com Legumes 🍗</h3>
-            <p>Um prato saudável e fácil de fazer. Grelhe peito de frango e acompanhe com legumes assados (cenoura, abobrinha, brócolis). A combinação ideal para uma alimentação equilibrada.</p>
-        </div>
-    </section>
-
-    <section class="section calculator">
-        <h2>🧮 Calculadoras de Saúde</h2>
-
-        <!-- Calculadora de Quantidade de Água -->
+        <h2>Calculadoras de Saúde 🧮</h2>
+        
         <div class="calculator">
-            <h3>💧 Cálculo da Ingestão Diária de Água</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoAgua" placeholder="Digite seu peso">
-            <button onclick="calcularAgua()">Calcular</button>
+            <h3>💧 Hidratação Diária</h3>
+            <p>Calcule a quantidade ideal de água para seu corpo:</p>
+            <input type="number" id="pesoAgua" placeholder="Seu peso em kg">
+            <button onclick="calcularAgua()">Calcular Hidratação</button>
             <p id="resultadoAgua"></p>
         </div>
 
-        <!-- Calculadora de IMC -->
         <div class="calculator">
-            <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoIMC" placeholder="Digite seu peso">
-            <label>Altura (cm):</label>
-            <input type="number" id="alturaIMC" placeholder="Digite sua altura em cm">
-            <button onclick="calcularIMC()">Calcular</button>
+            <h3>📏 Índice de Massa Corporal (IMC)</h3>
+            <input type="number" id="pesoIMC" placeholder="Peso (kg)">
+            <input type="number" id="alturaIMC" placeholder="Altura (cm)">
+            <button onclick="calcularIMC()">Calcular IMC</button>
             <p id="resultadoIMC"></p>
-        </div>
-
-        <!-- Calculadora de Calorias Diárias -->
-        <div class="calculator">
-            <h3>🔥 Calculadora de Calorias Diárias</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoCalorias" placeholder="Digite seu peso">
-            <label>Altura (cm):</label>
-            <input type="number" id="alturaCalorias" placeholder="Digite sua altura em cm">
-            <label>Idade:</label>
-            <input type="number" id="idadeCalorias" placeholder="Digite sua idade">
-            <label>Gênero:</label>
-            <select id="generoCalorias">
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-            </select>
-            <button onclick="calcularCalorias()">Calcular</button>
-            <p id="resultadoCalorias"></p>
         </div>
     </section>
 
-    <!-- Seção da Lista de Compras -->
+    <!-- Seção da Lista de Compras com enfoque em saúde financeira -->
     <section class="section">
-        <h2>🛒 Lista de Compras Saudáveis</h2>
+        <h2>🛒 Gestão de Compras Saudáveis</h2>
+        <p class="shopping-intro">"Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento. Um planejamento alimentar inteligente promove saúde física e financeira."</p>
+        
         <div class="shopping-list">
-            <input type="text" id="itemName" placeholder="Nome do item" class="item-input">
-            <input type="number" id="itemPrice" placeholder="Preço (R$)" step="0.01" class="item-input">
+            <input type="text" id="itemName" placeholder="Item (ex: Maçã, Frango)" class="item-input">
+            <input type="number" id="itemPrice" placeholder="Preço unitário (R$)" step="0.01" class="item-input">
             <input type="number" id="itemQuantity" placeholder="Quantidade" class="item-input">
-            <button onclick="addItem()">Adicionar Item</button>
+            <button onclick="addItem()">Adicionar à Lista</button>
             
             <div id="itemsContainer"></div>
             <div class="total">Total estimado: R$ <span id="totalValue">0.00</span></div>
+            
+            <div class="finance-tip">
+                <strong>📊 Dica Contábil:</strong> Compare preços e priorize alimentos in natura. Eles são mais saudáveis e costumam ter melhor custo-benefício a longo prazo.
+            </div>
+            
             <button onclick="finalizeList()">Finalizar Lista</button>
-            <p id="finalMessage" style="display:none; margin-top:10px;"></p>
+            <button onclick="saveList()" style="background-color: var(--accent-color);">Salvar Lista</button>
+            <p id="finalMessage" style="display:none; margin-top:20px;"></p>
         </div>
     </section>
 
+    <section class="section">
+        <h2>Saúde Financeira 💰</h2>
+        <ul>
+            <li><strong>Planejamento alimentar:</strong> Reduz desperdícios e gastos desnecessários</li>
+            <li><strong>Investimento em prevenção:</strong> Cuidar da saúde hoje evita custos médicos futuros</li>
+            <li><strong>Orçamento consciente:</strong> Equilibre gastos com alimentação saudável e bem-estar</li>
+        </ul>
+        
+        <div class="tip-box">
+            <strong>🧮 Relação com Ciências Contábeis:</strong> Assim como organizamos nossas finanças, devemos organizar nossa saúde. Ambos requerem planejamento, controle e ajustes periódicos para manutenção do equilíbrio.
+        </div>
+    </section>
+
+    <footer>
+        <p>Projeto integrando Saúde e Gestão Financeira | ODS 3 - Saúde e Bem-Estar</p>
+        <p>Ciências Contábeis - Educação Financeira para Qualidade de Vida</p>
+    </footer>
+
     <script>
-        // Funções das calculadoras de saúde (mantidas iguais)
+        // Funções das calculadoras de saúde
         function calcularAgua() {
-            let peso = document.getElementById("pesoAgua").value;
+            const peso = document.getElementById("pesoAgua").value;
             if (peso) {
-                let agua = (peso * 35) / 1000;
-                document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
+                const agua = (peso * 35) / 1000;
+                const resultado = `💧 Recomendação: <strong>${agua.toFixed(2)} litros/dia</strong>. Hidratação adequada melhora metabolismo e reduz fadiga.`;
+                document.getElementById("resultadoAgua").innerHTML = resultado;
             } else {
-                document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
+                document.getElementById("resultadoAgua").textContent = "Informe seu peso para cálculo.";
             }
         }
 
         function calcularIMC() {
-            let peso = document.getElementById("pesoIMC").value;
-            let altura = document.getElementById("alturaIMC").value;
+            const peso = parseFloat(document.getElementById("pesoIMC").value);
+            const altura = parseFloat(document.getElementById("alturaIMC").value);
+            
             if (peso && altura) {
-                altura = altura / 100;
-                let imc = peso / (altura * altura);
+                const alturaMetros = altura / 100;
+                const imc = peso / (alturaMetros * alturaMetros);
                 let categoria = "";
+                
                 if (imc < 18.5) categoria = "Abaixo do peso";
-                else if (imc >= 18.5 && imc < 24.9) categoria = "Peso normal";
-                else if (imc >= 25 && imc < 29.9) categoria = "Sobrepeso";
-                else categoria = "Obesidade";
-                document.getElementById("resultadoIMC").innerText = `Seu IMC é ${imc.toFixed(2)}. Categoria: ${categoria}`;
+                else if (imc < 24.9) categoria = "Peso saudável";
+                else if (imc < 29.9) categoria = "Sobrepeso";
+                else if (imc < 34.9) categoria = "Obesidade Grau I";
+                else if (imc < 39.9) categoria = "Obesidade Grau II";
+                else categoria = "Obesidade Grau III";
+                
+                const resultado = `Seu IMC: <strong>${imc.toFixed(1)}</strong> (${categoria}).<br>
+                <small>Manter um peso saudável reduz riscos de doenças e gastos com saúde.</small>`;
+                document.getElementById("resultadoIMC").innerHTML = resultado;
             } else {
-                document.getElementById("resultadoIMC").innerText = "Informe o peso e a altura corretamente.";
+                document.getElementById("resultadoIMC").textContent = "Preencha peso e altura corretamente.";
             }
         }
 
-        function calcularCalorias() {
-            let peso = document.getElementById("pesoCalorias").value;
-            let altura = document.getElementById("alturaCalorias").value;
-            let idade = document.getElementById("idadeCalorias").value;
-            let genero = document.getElementById("generoCalorias").value;
-
-            if (peso && altura && idade) {
-                let tmb;
-                if (genero === "masculino") {
-                    tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
-                } else {
-                    tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
-                }
-                let calorias = tmb * 1.2;
-                document.getElementById("resultadoCalorias").innerText = `Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.`;
-            } else {
-                document.getElementById("resultadoCalorias").innerText = "Por favor, preencha todos os campos corretamente.";
-            }
-        }
-
-        // Funções da Lista de Compras
+        // Sistema avançado de lista de compras
         let items = [];
         let total = 0;
 
         function addItem() {
-            const name = document.getElementById("itemName").value;
+            const name = document.getElementById("itemName").value.trim();
             const price = parseFloat(document.getElementById("itemPrice").value);
             const quantity = parseInt(document.getElementById("itemQuantity").value);
 
-            if (name && !isNaN(price) && !isNaN(quantity)) {
+            if (name && !isNaN(price) && !isNaN(quantity) && price > 0 && quantity > 0) {
                 const itemTotal = price * quantity;
-                items.push({ name, price, quantity, itemTotal });
+                const newItem = {
+                    name,
+                    price,
+                    quantity,
+                    itemTotal,
+                    id: Date.now()
+                };
+                
+                items.push(newItem);
                 total += itemTotal;
                 
                 updateItemsList();
                 updateTotal();
                 
-                // Limpa os campos
+                // Limpar campos
                 document.getElementById("itemName").value = "";
                 document.getElementById("itemPrice").value = "";
                 document.getElementById("itemQuantity").value = "";
+                document.getElementById("itemName").focus();
             } else {
-                alert("Por favor, preencha todos os campos corretamente.");
+                alert("Por favor, preencha todos os campos com valores válidos.");
             }
         }
 
@@ -279,13 +373,23 @@
             const container = document.getElementById("itemsContainer");
             container.innerHTML = "";
             
+            if (items.length === 0) {
+                container.innerHTML = '<p style="color:#666; text-align:center;">Nenhum item adicionado ainda</p>';
+                return;
+            }
+            
             items.forEach((item, index) => {
                 const itemElement = document.createElement("div");
                 itemElement.className = "item";
                 itemElement.innerHTML = `
-                    <span>${item.name} - ${item.quantity}x (R$ ${item.price.toFixed(2)})</span>
-                    <span>R$ ${item.itemTotal.toFixed(2)}</span>
-                    <button onclick="removeItem(${index})">Remover</button>
+                    <div>
+                        <strong>${item.name}</strong><br>
+                        <small>${item.quantity}x R$ ${item.price.toFixed(2)}</small>
+                    </div>
+                    <div>
+                        R$ ${item.itemTotal.toFixed(2)}
+                        <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                    </div>
                 `;
                 container.appendChild(itemElement);
             });
@@ -304,23 +408,93 @@
 
         function finalizeList() {
             const finalMessage = document.getElementById("finalMessage");
+            
             if (items.length === 0) {
-                finalMessage.textContent = "Adicione itens à lista primeiro!";
+                finalMessage.textContent = "Sua lista está vazia. Adicione itens para calcular o total.";
                 finalMessage.style.display = "block";
                 return;
             }
             
-            let message = "<strong>Lista de Compras Finalizada:</strong><br><ul>";
+            let message = `
+                <div style="background:#f5f5f5; padding:15px; border-radius:8px;">
+                    <h3 style="margin-top:0;">📋 Resumo da Lista de Compras</h3>
+                    <table style="width:100%; border-collapse:collapse;">
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <th style="text-align:left; padding:8px 0;">Item</th>
+                            <th style="text-align:right; padding:8px 0;">Valor</th>
+                        </tr>
+            `;
+            
             items.forEach(item => {
-                message += `<li>${item.name} - ${item.quantity}x (R$ ${item.price.toFixed(2)}) = R$ ${item.itemTotal.toFixed(2)}</li>`;
+                message += `
+                    <tr style="border-bottom:1px solid #eee;">
+                        <td style="padding:8px 0;">${item.name} (${item.quantity}x)</td>
+                        <td style="text-align:right; padding:8px 0;">R$ ${item.itemTotal.toFixed(2)}</td>
+                    </tr>
+                `;
             });
-            message += `</ul><strong>Total: R$ ${total.toFixed(2)}</strong><br>`;
-            message += "Dica: Compre somente o necessário e evite desperdícios!";
+            
+            message += `
+                    <tr style="font-weight:bold;">
+                        <td style="padding:8px 0;">TOTAL</td>
+                        <td style="text-align:right; padding:8px 0;">R$ ${total.toFixed(2)}</td>
+                    </tr>
+                    </table>
+                    
+                    <div style="margin-top:15px; padding:10px; background:#e8f5e9; border-radius:6px;">
+                        <strong>💡 Dicas para economizar:</strong>
+                        <ul style="margin-bottom:0;">
+                            <li>Priorize alimentos da estação</li>
+                            <li>Compare preços entre mercados</li>
+                            <li>Prefira alimentos in natura a industrializados</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
             
             finalMessage.innerHTML = message;
             finalMessage.style.display = "block";
         }
-    </script>
 
+        function saveList() {
+            if (items.length === 0) {
+                alert("Adicione itens à lista antes de salvar.");
+                return;
+            }
+            
+            let listContent = "📋 Minha Lista de Compras Saudáveis\n\n";
+            items.forEach(item => {
+                listContent += `- ${item.name} (${item.quantity}x): R$ ${item.itemTotal.toFixed(2)}\n`;
+            });
+            listContent += `\n💰 TOTAL: R$ ${total.toFixed(2)}`;
+            listContent += "\n\n💚 Compre com consciência e priorize sua saúde!";
+            
+            // Criar blob para download
+            const blob = new Blob([listContent], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "lista-compras-saudaveis.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert("Lista salva com sucesso!");
+        }
+
+        // Melhoria: Permitir adicionar com Enter
+        document.addEventListener("DOMContentLoaded", () => {
+            const inputs = ["itemName", "itemPrice", "itemQuantity"];
+            
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener("keypress", (e) => {
+                    if (e.key === "Enter") {
+                        addItem();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
