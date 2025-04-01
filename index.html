@@ -1,146 +1,190 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoAlimentos</title>
+    <title>Saúde e Bem-Estar 🏥💙</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f8ff;
-            padding: 50px;
-        }
-        h1 {
-            color: #4CAF50;
-        }
-        .button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 500px;
-        }
-        input[type="text"], input[type="number"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        #itemList {
-            margin-top: 20px;
-            text-align: left;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        #finalizeList {
-            margin-top: 20px;
-            font-weight: bold;
-            display: none;
-        }
-        .tab {
-            display: none;
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        .calculator { margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; }
+        input, button { padding: 8px; margin-top: 5px; width: 100%; max-width: 400px; }
+        button { cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #45a049; }
+        p { font-size: 1.1rem; color: #333; }
+
+        /* Responsividade para dispositivos móveis */
+        @media screen and (max-width: 600px) {
+            .section { padding: 15px; }
+            h2 { font-size: 1.5rem; }
+            input, button { width: 100%; }
+            .calculator { padding: 12px; }
         }
     </style>
 </head>
 <body>
-    <h1>EcoAlimentos</h1>
 
-    <!-- Navegação entre páginas -->
-    <button class="button" onclick="showTab('home')">Página Inicial</button>
-    <button class="button" onclick="showTab('compras')">Lista de Compras</button>
+    <section class="section">
+        <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
+        <ul>
+            <li><strong>Coma alimentos ricos em fibras:</strong> Alimentos como grãos integrais, frutas e vegetais ajudam na digestão e mantêm seu sistema imunológico forte.</li>
+            <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
+            <li><strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, alimentos industrializados e fast food.</li>
+            <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
+            <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
+        </ul>
+    </section>
 
-    <!-- Página Inicial -->
-    <div id="home" class="tab">
-        <h2>Bem-vindo ao EcoAlimentos!</h2>
-        <p>Seu assistente para alimentação sustentável.</p>
-    </div>
+    <section class="section">
+        <h2>Prevenção de Doenças Comuns 🚑</h2>
+        <div class="diseases">
+            <h3>1. Hipertensão (Pressão Alta)</h3>
+            <p>A hipertensão é muitas vezes chamada de "assassino silencioso". Mantenha a pressão arterial sob controle com a prática de atividades físicas regulares, dieta balanceada e evitando o consumo excessivo de sal.</p>
 
-    <!-- Página de Compras -->
-    <div id="compras" class="tab">
-        <h2>Lista de Compras</h2>
-        <div class="container">
-            <input type="text" id="itemName" placeholder="Nome do Item" required>
-            <input type="number" id="itemPrice" placeholder="Preço Unitário (R$)" step="0.01" required>
-            <input type="number" id="itemQuantity" placeholder="Quantidade" required>
-            <button class="button" onclick="addItem()">Adicionar Item</button>
+            <h3>2. Diabetes Tipo 2</h3>
+            <p>A diabetes tipo 2 é uma condição em que o corpo não consegue usar adequadamente a insulina. Prevenção envolve alimentação saudável, controle do peso e atividade física constante.</p>
+
+            <h3>3. Doenças Cardiovasculares</h3>
+            <p>Manter uma dieta saudável, praticar exercícios e evitar fumar são as melhores formas de prevenir doenças cardíacas. Controlar o colesterol e a pressão arterial também é essencial.</p>
+
+            <h3>4. Doenças Respiratórias</h3>
+            <p>Para prevenir doenças respiratórias, como a asma, evite poluentes, procure um ambiente com boa ventilação e realize exercícios respiratórios regularmente.</p>
         </div>
-        <div id="itemList" class="container"></div>
-        <div id="finalizeList" class="container"></div>
-        <button class="button" onclick="finalizeList()">Finalizar Lista</button>
-    </div>
+    </section>
+
+    <section class="section">
+        <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
+        <div class="mental-health">
+            <h3>Dicas para Cuidar da Sua Mente:</h3>
+            <ul>
+                <li><strong>Pratique a meditação:</strong> A meditação é uma ótima maneira de reduzir o estresse e melhorar o foco mental.</li>
+                <li><strong>Durma o suficiente:</strong> Dormir entre 7 a 8 horas por noite é fundamental para manter a saúde mental em equilíbrio.</li>
+                <li><strong>Converse com alguém:</strong> Falar com amigos, familiares ou até um terapeuta pode ajudar a aliviar o peso emocional.</li>
+                <li><strong>Evite o isolamento:</strong> Interaja com outras pessoas, mantenha relações sociais e participe de atividades comunitárias.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
+        <div class="healthy-recipes">
+            <h3>Receita 1: Salada Colorida de Quinoa 🥗</h3>
+            <p>Uma refeição nutritiva e cheia de fibras! Prepare a quinoa e misture com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Uma excelente opção para o almoço.</p>
+
+            <h3>Receita 2: Smoothie Verde Energético 🍹</h3>
+            <p>Uma bebida refrescante e cheia de nutrientes. Bata espinafre, abacaxi, maçã, gengibre e um pouco de água de coco para um smoothie delicioso e saudável.</p>
+
+            <h3>Receita 3: Frango Grelhado com Legumes 🍗</h3>
+            <p>Um prato saudável e fácil de fazer. Grelhe peito de frango e acompanhe com legumes assados (cenoura, abobrinha, brócolis). A combinação ideal para uma alimentação equilibrada.</p>
+        </div>
+    </section>
+
+    <section class="section calculator">
+        <h2>🧮 Calculadoras de Saúde</h2>
+
+        <!-- Calculadora de Quantidade de Água -->
+        <div class="calculator">
+            <h3>💧 Cálculo da Ingestão Diária de Água</h3>
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoAgua" placeholder="Digite seu peso">
+            <button onclick="calcularAgua()">Calcular</button>
+            <p id="resultadoAgua"></p>
+        </div>
+
+        <!-- Calculadora de IMC -->
+        <div class="calculator">
+            <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoIMC" placeholder="Digite seu peso">
+            <label>Altura (cm):</label>
+            <input type="number" id="alturaIMC" placeholder="Digite sua altura em cm">
+            <button onclick="calcularIMC()">Calcular</button>
+            <p id="resultadoIMC"></p>
+        </div>
+
+        <!-- Calculadora de Calorias Diárias -->
+        <div class="calculator">
+            <h3>🔥 Calculadora de Calorias Diárias</h3>
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoCalorias" placeholder="Digite seu peso">
+            <label>Altura (cm):</label>
+            <input type="number" id="alturaCalorias" placeholder="Digite sua altura em cm">
+            <label>Idade:</label>
+            <input type="number" id="idadeCalorias" placeholder="Digite sua idade">
+            <label>Gênero:</label>
+            <select id="generoCalorias">
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+            <button onclick="calcularCalorias()">Calcular</button>
+            <p id="resultadoCalorias"></p>
+        </div>
+    </section>
 
     <script>
-        let itemList = [];
-
-        function showTab(tabName) {
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.style.display = 'none';
-            });
-            document.getElementById(tabName).style.display = 'block';
-        }
-
-        function addItem() {
-            const itemName = document.getElementById("itemName").value;
-            const itemPrice = parseFloat(document.getElementById("itemPrice").value);
-            const itemQuantity = parseInt(document.getElementById("itemQuantity").value);
-
-            if (itemName && itemPrice && itemQuantity) {
-                itemList.push({ name: itemName, price: itemPrice, quantity: itemQuantity });
-                document.getElementById("itemName").value = '';
-                document.getElementById("itemPrice").value = '';
-                document.getElementById("itemQuantity").value = '';
-                displayItems();
+        // Função para calcular a ingestão diária de água
+        function calcularAgua() {
+            let peso = document.getElementById("pesoAgua").value;
+            if (peso) {
+                let agua = (peso * 35) / 1000; // Fórmula de cálculo de ingestão de água
+                document.getElementById("resultadoAgua").innerText = Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧;
             } else {
-                alert("Por favor, preencha todos os campos.");
+                document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
             }
         }
 
-        function displayItems() {
-            const itemListDiv = document.getElementById("itemList");
-            itemListDiv.innerHTML = "";
-            let totalCost = 0;
-
-            itemList.forEach(item => {
-                totalCost += item.price * item.quantity;
-                itemListDiv.innerHTML += `<p>${item.name} - R$ ${item.price.toFixed(2)} (Quantidade: ${item.quantity})</p>`;
-            });
-            itemListDiv.innerHTML += `<p><strong>Total Estimado: R$ ${totalCost.toFixed(2)}</strong></p>`;
-            document.getElementById("finalizeList").style.display = 'block';
+        // Função para calcular o IMC
+        function calcularIMC() {
+            let peso = document.getElementById("pesoIMC").value;
+            let altura = document.getElementById("alturaIMC").value;
+            if (peso && altura) {
+                altura = altura / 100; // Convertendo altura para metros
+                let imc = peso / (altura * altura);
+                let categoria = "";
+                if (imc < 18.5) categoria = "Abaixo do peso";
+                else if (imc >= 18.5 && imc < 24.9) categoria = "Peso normal";
+                else if (imc >= 25 && imc < 29.9) categoria = "Sobrepeso";
+                else categoria = "Obesidade";
+                document.getElementById("resultadoIMC").innerText = Seu IMC é ${imc.toFixed(2)}. Categoria: ${categoria};
+            } else {
+                document.getElementById("resultadoIMC").innerText = "Informe o peso e a altura corretamente.";
+            }
         }
 
-        function finalizeList() {
-            const finalizeDiv = document.getElementById("finalizeList");
-            finalizeDiv.innerHTML = "<h3>Lista de Compras:</h3>";
-            itemList.forEach(item => {
-                finalizeDiv.innerHTML += `<p>${item.name} - R$ ${item.price.toFixed(2)} (Quantidade: ${item.quantity})</p>`;
-            });
-            finalizeDiv.innerHTML += `<p><strong>Total: R$ ${(itemList.reduce((sum, item) => sum + (item.price * item.quantity), 0)).toFixed(2)}</strong></p>`;
-            finalizeDiv.innerHTML += "<p><strong>Evite desperdícios, compre somente o necessário!</strong></p>";
-        }
+        // Função para calcular as calorias diárias
+        function calcularCalorias() {
+            let peso = document.getElementById("pesoCalorias").value;
+            let altura = document.getElementById("alturaCalorias").value;
+            let idade = document.getElementById("idadeCalorias").value;
+            let genero = document.getElementById("generoCalorias").value;
 
-        // Mostrar a página inicial ao carregar
-        showTab('home');
+            if (peso && altura && idade) {
+                let tmb;
+                if (genero === "masculino") {
+                    tmb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * idade);
+                } else {
+                    tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
+                }
+                let calorias = tmb * 1.2; // Multiplicando pelo fator de atividade (moderada)
+                document.getElementById("resultadoCalorias").innerText = Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.;
+            } else {
+                document.getElementById("resultadoCalorias").innerText = "Por favor, preencha todos os campos corretamente.";
+            }
+        }
     </script>
+
+ </div>
+    </section>
+<body>
+<section class="section calculator">
+        <h2>🧮 Calculadora de Compras</h2>
+    
+ <div class="calculator">
+            <h3>Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento: </h3>
+
+    <a href="compras.html" class="button">Calcular Valor das Minhas Compras 🛒</a>
 </body>
 </html>
