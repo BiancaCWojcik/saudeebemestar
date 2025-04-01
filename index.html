@@ -15,6 +15,8 @@
         button { cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px; }
         button:hover { background-color: #45a049; }
         p { font-size: 1.1rem; color: #333; }
+        .button { display: inline-block; padding: 10px 15px; text-decoration: none; background-color: #007bff; color: white; border-radius: 4px; text-align: center; }
+        .button:hover { background-color: #0056b3; }
 
         /* Responsividade para dispositivos móveis */
         @media screen and (max-width: 600px) {
@@ -36,50 +38,6 @@
             <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
             <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
         </ul>
-    </section>
-
-    <section class="section">
-        <h2>Prevenção de Doenças Comuns 🚑</h2>
-        <div class="diseases">
-            <h3>1. Hipertensão (Pressão Alta)</h3>
-            <p>A hipertensão é muitas vezes chamada de "assassino silencioso". Mantenha a pressão arterial sob controle com a prática de atividades físicas regulares, dieta balanceada e evitando o consumo excessivo de sal.</p>
-
-            <h3>2. Diabetes Tipo 2</h3>
-            <p>A diabetes tipo 2 é uma condição em que o corpo não consegue usar adequadamente a insulina. Prevenção envolve alimentação saudável, controle do peso e atividade física constante.</p>
-
-            <h3>3. Doenças Cardiovasculares</h3>
-            <p>Manter uma dieta saudável, praticar exercícios e evitar fumar são as melhores formas de prevenir doenças cardíacas. Controlar o colesterol e a pressão arterial também é essencial.</p>
-
-            <h3>4. Doenças Respiratórias</h3>
-            <p>Para prevenir doenças respiratórias, como a asma, evite poluentes, procure um ambiente com boa ventilação e realize exercícios respiratórios regularmente.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
-        <div class="mental-health">
-            <h3>Dicas para Cuidar da Sua Mente:</h3>
-            <ul>
-                <li><strong>Pratique a meditação:</strong> A meditação é uma ótima maneira de reduzir o estresse e melhorar o foco mental.</li>
-                <li><strong>Durma o suficiente:</strong> Dormir entre 7 a 8 horas por noite é fundamental para manter a saúde mental em equilíbrio.</li>
-                <li><strong>Converse com alguém:</strong> Falar com amigos, familiares ou até um terapeuta pode ajudar a aliviar o peso emocional.</li>
-                <li><strong>Evite o isolamento:</strong> Interaja com outras pessoas, mantenha relações sociais e participe de atividades comunitárias.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
-        <div class="healthy-recipes">
-            <h3>Receita 1: Salada Colorida de Quinoa 🥗</h3>
-            <p>Uma refeição nutritiva e cheia de fibras! Prepare a quinoa e misture com tomate, pepino, cenoura, pimentão e ervas frescas. Tempere com azeite e limão. Uma excelente opção para o almoço.</p>
-
-            <h3>Receita 2: Smoothie Verde Energético 🍹</h3>
-            <p>Uma bebida refrescante e cheia de nutrientes. Bata espinafre, abacaxi, maçã, gengibre e um pouco de água de coco para um smoothie delicioso e saudável.</p>
-
-            <h3>Receita 3: Frango Grelhado com Legumes 🍗</h3>
-            <p>Um prato saudável e fácil de fazer. Grelhe peito de frango e acompanhe com legumes assados (cenoura, abobrinha, brócolis). A combinação ideal para uma alimentação equilibrada.</p>
-        </div>
     </section>
 
     <section class="section calculator">
@@ -130,7 +88,7 @@
             let peso = document.getElementById("pesoAgua").value;
             if (peso) {
                 let agua = (peso * 35) / 1000; // Fórmula de cálculo de ingestão de água
-                document.getElementById("resultadoAgua").innerText = Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧;
+                document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
             } else {
                 document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
             }
@@ -148,7 +106,7 @@
                 else if (imc >= 18.5 && imc < 24.9) categoria = "Peso normal";
                 else if (imc >= 25 && imc < 29.9) categoria = "Sobrepeso";
                 else categoria = "Obesidade";
-                document.getElementById("resultadoIMC").innerText = Seu IMC é ${imc.toFixed(2)}. Categoria: ${categoria};
+                document.getElementById("resultadoIMC").innerText = `Seu IMC é ${imc.toFixed(2)}. Categoria: ${categoria}`;
             } else {
                 document.getElementById("resultadoIMC").innerText = "Informe o peso e a altura corretamente.";
             }
@@ -169,23 +127,20 @@
                     tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
                 }
                 let calorias = tmb * 1.2; // Multiplicando pelo fator de atividade (moderada)
-                document.getElementById("resultadoCalorias").innerText = Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.;
+                document.getElementById("resultadoCalorias").innerText = `Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.`;
             } else {
                 document.getElementById("resultadoCalorias").innerText = "Por favor, preencha todos os campos corretamente.";
             }
         }
     </script>
 
- </div>
+    <section class="section calculator">
+        <h2>🛒 Calculadora de Compras</h2>
+        <div class="calculator">
+            <h3>Calcule o valor das suas compras:</h3>
+            <a href="compras.html" class="button">Calcular Valor das Minhas Compras 🛒</a>
+        </div>
     </section>
-<body>
-<section class="section calculator">
-    <h2>🛒 Calculadora de Compras</h2>
-    <div class="calculator">
-        <h3>Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento:</h3>
-        <a href="compras.html" class="button">Calcular Valor das Minhas Compras 🛒</a>
-    </div>
-</section>
 
 </body>
 </html>
