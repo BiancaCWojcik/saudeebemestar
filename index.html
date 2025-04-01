@@ -1,107 +1,147 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saúde e Bem-Estar 🏥💙</title>
+    <title>Saúde e Bem-Estar 🏥💙 | ODS 3</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 20px; 
-            background-color: #f4f4f4; 
-            font-size: 16px; /* Tamanho original */
+            background-color: #f4f4f4;
+            font-size: 16px; /* Tamanho de fonte aumentado */
+            line-height: 1.6;
         }
+        
         .section { 
             background: white; 
-            padding: 20px; 
-            margin-bottom: 20px; 
+            padding: 25px; 
+            margin-bottom: 25px; 
             border-radius: 8px; 
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        
         h2 { 
-            color: #2c3e50; 
-            font-size: 1.5rem; /* Tamanho original */
+            color: #2c3e50;
+            font-size: 1.5rem; /* Título maior */
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
         }
+        
         ul { 
             list-style: none; 
             padding: 0; 
         }
+        
         li { 
-            margin: 10px 0; 
-            font-size: 1.1rem; /* Tamanho original */
+            margin: 12px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1rem; /* Texto legível */
         }
+        
+        li:before {
+            content: "•";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
         .calculator { 
             margin-top: 20px; 
-            padding: 15px; 
-            background: #e3f2fd; 
+            padding: 20px; 
+            background: #e8f5e9; 
             border-radius: 8px; 
         }
-        input, button { 
-            padding: 10px; 
-            margin-top: 8px; 
+        
+        input, button, select { 
+            padding: 12px; /* Campos maiores */
+            margin-top: 10px; 
             width: 100%; 
             max-width: 400px; 
-            font-size: 1rem; /* Tamanho original */
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
         }
+        
         button { 
             cursor: pointer; 
             background-color: #4CAF50; 
             color: white; 
             border: none; 
-            border-radius: 4px; 
-            font-size: 1rem; /* Tamanho original */
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
+        
         button:hover { 
-            background-color: #45a049; 
+            background-color: #3d8b40; 
         }
-        p { 
-            font-size: 1.1rem; /* Tamanho original */
-            color: #333; 
-        }
-
-        /* Estilos para a lista de compras (novos) */
-        .shopping-header {
+        
+        /* Estilos para lista de compras */
+        .shopping-intro {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
             font-style: italic;
-            margin-bottom: 15px;
-            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
         }
-        .item-input {
-            margin-bottom: 10px;
-        }
+        
         #itemsContainer {
-            margin-top: 15px;
+            margin-top: 20px;
         }
+        
         .item {
             display: flex;
             justify-content: space-between;
-            padding: 8px;
+            padding: 12px;
             border-bottom: 1px solid #eee;
+            align-items: center;
         }
+        
         .remove-btn {
             background-color: #e74c3c;
             color: white;
             border: none;
-            border-radius: 3px;
-            padding: 2px 8px;
+            border-radius: 4px;
+            padding: 5px 10px;
             margin-left: 10px;
+            cursor: pointer;
         }
+        
         .total {
             font-weight: bold;
-            margin-top: 15px;
-            text-align: right;
+            margin-top: 20px;
             font-size: 1.2rem;
+            text-align: right;
+        }
+        
+        .tip-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid #2196F3;
         }
 
         /* Responsividade */
         @media screen and (max-width: 600px) {
-            .section { padding: 15px; }
-            input, button { width: 100%; }
+            body {
+                font-size: 15px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Seções originais (mantidas exatamente como estavam) -->
+    <!-- Seção: Dicas de Saúde (original) -->
     <section class="section">
         <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
         <ul>
@@ -113,6 +153,7 @@
         </ul>
     </section>
 
+    <!-- Seção: Prevenção de Doenças (original) -->
     <section class="section">
         <h2>Prevenção de Doenças Comuns 🚑</h2>
         <div class="diseases">
@@ -130,6 +171,7 @@
         </div>
     </section>
 
+    <!-- Seção: Saúde Mental (original) -->
     <section class="section">
         <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
         <div class="mental-health">
@@ -143,6 +185,7 @@
         </div>
     </section>
 
+    <!-- Seção: Receitas Saudáveis (original) -->
     <section class="section">
         <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
         <div class="healthy-recipes">
@@ -157,14 +200,14 @@
         </div>
     </section>
 
+    <!-- Seção: Calculadoras de Saúde (original) -->
     <section class="section calculator">
         <h2>🧮 Calculadoras de Saúde</h2>
 
-        <!-- Calculadora de Quantidade de Água -->
+        <!-- Calculadora de Água -->
         <div class="calculator">
             <h3>💧 Cálculo da Ingestão Diária de Água</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoAgua" placeholder="Digite seu peso">
+            <input type="number" id="pesoAgua" placeholder="Digite seu peso (kg)">
             <button onclick="calcularAgua()">Calcular</button>
             <p id="resultadoAgua"></p>
         </div>
@@ -172,24 +215,18 @@
         <!-- Calculadora de IMC -->
         <div class="calculator">
             <h3>📏 Cálculo do IMC (Índice de Massa Corporal)</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoIMC" placeholder="Digite seu peso">
-            <label>Altura (cm):</label>
-            <input type="number" id="alturaIMC" placeholder="Digite sua altura em cm">
+            <input type="number" id="pesoIMC" placeholder="Digite seu peso (kg)">
+            <input type="number" id="alturaIMC" placeholder="Digite sua altura (cm)">
             <button onclick="calcularIMC()">Calcular</button>
             <p id="resultadoIMC"></p>
         </div>
 
-        <!-- Calculadora de Calorias Diárias -->
+        <!-- Calculadora de Calorias -->
         <div class="calculator">
             <h3>🔥 Calculadora de Calorias Diárias</h3>
-            <label>Peso (kg):</label>
-            <input type="number" id="pesoCalorias" placeholder="Digite seu peso">
-            <label>Altura (cm):</label>
-            <input type="number" id="alturaCalorias" placeholder="Digite sua altura em cm">
-            <label>Idade:</label>
+            <input type="number" id="pesoCalorias" placeholder="Digite seu peso (kg)">
+            <input type="number" id="alturaCalorias" placeholder="Digite sua altura (cm)">
             <input type="number" id="idadeCalorias" placeholder="Digite sua idade">
-            <label>Gênero:</label>
             <select id="generoCalorias">
                 <option value="masculino">Masculino</option>
                 <option value="feminino">Feminino</option>
@@ -199,10 +236,10 @@
         </div>
     </section>
 
-    <!-- Nova seção: Lista de Compras (integrada sutilmente) -->
+    <!-- Seção: Lista de Compras (nova versão integrada) -->
     <section class="section">
         <h2>🛒 Lista de Compras Saudáveis</h2>
-        <p class="shopping-header">"Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento."</p>
+        <p class="shopping-intro">"Calcule o valor das suas compras e mantenha seu bem-estar sem comprometer seu orçamento. Um planejamento alimentar inteligente promove saúde física e financeira."</p>
         
         <div>
             <input type="text" id="itemName" placeholder="Nome do item (ex: Maçã)" class="item-input">
@@ -213,20 +250,25 @@
             <div id="itemsContainer"></div>
             <div class="total">Total estimado: R$ <span id="totalValue">0.00</span></div>
             
+            <div class="tip-box">
+                Compare preços e priorize alimentos in natura. Eles são mais saudáveis e costumam ter melhor custo-benefício a longo prazo.
+            </div>
+            
             <button onclick="finalizeList()">Finalizar Lista</button>
-            <p id="finalMessage" style="display:none; margin-top:15px;"></p>
+            <button onclick="saveList()" style="background-color: #2196F3;">Salvar Lista</button>
+            <p id="finalMessage" style="display:none; margin-top:20px;"></p>
         </div>
     </section>
 
     <script>
-        // Funções originais das calculadoras (mantidas intactas)
+        // Funções das calculadoras de saúde (originais)
         function calcularAgua() {
             let peso = document.getElementById("pesoAgua").value;
             if (peso) {
                 let agua = (peso * 35) / 1000;
-                document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
+                document.getElementById("resultadoAgua").innerHTML = `Você deve beber cerca de <strong>${agua.toFixed(2)} litros</strong> de água por dia. 💧`;
             } else {
-                document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
+                document.getElementById("resultadoAgua").textContent = "Informe seu peso corretamente.";
             }
         }
 
@@ -241,9 +283,9 @@
                 else if (imc >= 18.5 && imc < 24.9) categoria = "Peso normal";
                 else if (imc >= 25 && imc < 29.9) categoria = "Sobrepeso";
                 else categoria = "Obesidade";
-                document.getElementById("resultadoIMC").innerText = `Seu IMC é ${imc.toFixed(2)}. Categoria: ${categoria}`;
+                document.getElementById("resultadoIMC").innerHTML = `Seu IMC é <strong>${imc.toFixed(2)}</strong>. Categoria: ${categoria}`;
             } else {
-                document.getElementById("resultadoIMC").innerText = "Informe o peso e a altura corretamente.";
+                document.getElementById("resultadoIMC").textContent = "Informe o peso e a altura corretamente.";
             }
         }
 
@@ -261,13 +303,13 @@
                     tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
                 }
                 let calorias = tmb * 1.2;
-                document.getElementById("resultadoCalorias").innerText = `Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.`;
+                document.getElementById("resultadoCalorias").innerHTML = `Você deve consumir aproximadamente <strong>${calorias.toFixed(2)} calorias</strong> por dia.`;
             } else {
-                document.getElementById("resultadoCalorias").innerText = "Por favor, preencha todos os campos corretamente.";
+                document.getElementById("resultadoCalorias").textContent = "Por favor, preencha todos os campos corretamente.";
             }
         }
 
-        // Funções da lista de compras (novas)
+        // Sistema de lista de compras (novo)
         let items = [];
         let total = 0;
 
@@ -289,7 +331,7 @@
                 document.getElementById("itemPrice").value = "";
                 document.getElementById("itemQuantity").value = "";
             } else {
-                alert("Por favor, preencha todos os campos corretamente.");
+                alert("Por favor, preencha todos os campos com valores válidos.");
             }
         }
 
@@ -301,10 +343,10 @@
                 const itemElement = document.createElement("div");
                 itemElement.className = "item";
                 itemElement.innerHTML = `
-                    <span>${item.name} - ${item.quantity}x R$ ${item.price.toFixed(2)}</span>
+                    <span>${item.name} - ${item.quantity}x (R$ ${item.price.toFixed(2)})</span>
                     <span>
                         R$ ${item.itemTotal.toFixed(2)}
-                        <button class="remove-btn" onclick="removeItem(${index})">×</button>
+                        <button class="remove-btn" onclick="removeItem(${index})">Remover</button>
                     </span>
                 `;
                 container.appendChild(itemElement);
@@ -324,22 +366,45 @@
 
         function finalizeList() {
             const finalMessage = document.getElementById("finalMessage");
-            
             if (items.length === 0) {
-                finalMessage.textContent = "Sua lista de compras está vazia.";
+                finalMessage.textContent = "Adicione itens à lista primeiro!";
                 finalMessage.style.display = "block";
                 return;
             }
             
-            let message = "📋 <strong>Lista de Compras Finalizada</strong><br><br>";
+            let message = "<strong>📋 Lista de Compras Finalizada</strong><br><ul>";
             items.forEach(item => {
-                message += `• ${item.name} (${item.quantity}x): R$ ${item.itemTotal.toFixed(2)}<br>`;
+                message += `<li>${item.name} - ${item.quantity}x (R$ ${item.price.toFixed(2)}) = R$ ${item.itemTotal.toFixed(2)}</li>`;
             });
-            message += `<br><strong>Total: R$ ${total.toFixed(2)}</strong><br><br>`;
-            message += "💚 Compre com consciência e priorize sua saúde!";
+            message += `</ul><strong>Total: R$ ${total.toFixed(2)}</strong><br>`;
+            message += "Dica: Compre somente o necessário e evite desperdícios!";
             
             finalMessage.innerHTML = message;
             finalMessage.style.display = "block";
+        }
+
+        function saveList() {
+            if (items.length === 0) {
+                alert("Adicione itens à lista antes de salvar.");
+                return;
+            }
+            
+            let listContent = "Lista de Compras Saudáveis\n\n";
+            items.forEach(item => {
+                listContent += `- ${item.name} (${item.quantity}x): R$ ${item.itemTotal.toFixed(2)}\n`;
+            });
+            listContent += `\nTotal: R$ ${total.toFixed(2)}`;
+            
+            // Criar blob para download
+            const blob = new Blob([listContent], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "lista-compras-saudavel.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
