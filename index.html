@@ -1,97 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saúde e Bem-Estar 🏥💙</title>
     <style>
-        /* Estilos Gerais */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        .section {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        p {
-            font-size: 1.1rem;
-            color: #333;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        .calculator { margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; }
+        input, button { padding: 8px; margin-top: 5px; width: 100%; max-width: 400px; }
+        button { cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px; }
+        button:hover { background-color: #45a049; }
+        p { font-size: 1.1rem; color: #333; }
 
-        /* Calculadoras */
-        .calculator {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e3f2fd;
-            border-radius: 8px;
-        }
-        input, button, .button {
-            padding: 8px;
-            margin-top: 5px;
-            width: 100%;
-            max-width: 400px;
-        }
-        button, .button {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-        button:hover, .button:hover {
-            background-color: #45a049;
-        }
-
-        /* Lista de Compras */
-        .form-container {
-            margin: 20px 0;
-            display: inline-block;
-            text-align: left;
-        }
-        #itemList {
-            margin-top: 20px;
-            text-align: left;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        #finalizeList {
-            margin-top: 20px;
-            font-weight: bold;
-            display: none;
-        }
-
-        /* Responsividade */
+        /* Responsividade para dispositivos móveis */
         @media screen and (max-width: 600px) {
             .section { padding: 15px; }
             h2 { font-size: 1.5rem; }
-            input, button, .button { width: 100%; }
+            input, button { width: 100%; }
             .calculator { padding: 12px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Seção: Dicas de Saúde -->
     <section class="section">
         <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
         <ul>
@@ -103,7 +38,6 @@
         </ul>
     </section>
 
-    <!-- Seção: Prevenção de Doenças -->
     <section class="section">
         <h2>Prevenção de Doenças Comuns 🚑</h2>
         <div class="diseases">
@@ -121,7 +55,6 @@
         </div>
     </section>
 
-    <!-- Seção: Saúde Mental -->
     <section class="section">
         <h2>Saúde Mental: A Importância do Equilíbrio Emocional 🧠</h2>
         <div class="mental-health">
@@ -135,7 +68,6 @@
         </div>
     </section>
 
-    <!-- Seção: Receitas Saudáveis -->
     <section class="section">
         <h2>Receitas Saudáveis para o Seu Bem-Estar 🍏</h2>
         <div class="healthy-recipes">
@@ -150,11 +82,10 @@
         </div>
     </section>
 
-    <!-- Seção: Calculadoras de Saúde -->
     <section class="section calculator">
         <h2>🧮 Calculadoras de Saúde</h2>
 
-        <!-- Calculadora de Água -->
+        <!-- Calculadora de Quantidade de Água -->
         <div class="calculator">
             <h3>💧 Cálculo da Ingestão Diária de Água</h3>
             <label>Peso (kg):</label>
@@ -174,7 +105,7 @@
             <p id="resultadoIMC"></p>
         </div>
 
-        <!-- Calculadora de Calorias -->
+        <!-- Calculadora de Calorias Diárias -->
         <div class="calculator">
             <h3>🔥 Calculadora de Calorias Diárias</h3>
             <label>Peso (kg):</label>
@@ -193,37 +124,24 @@
         </div>
     </section>
 
-    <!-- Seção: Lista de Compras -->
-    <section class="section">
-        <h2>🛒 Lista de Compras Saudáveis</h2>
-        <div class="form-container">
-            <input type="text" id="itemName" placeholder="Nome do Item" required>
-            <input type="number" id="itemPrice" placeholder="Preço Unitário (R$)" step="0.01" required>
-            <input type="number" id="itemQuantity" placeholder="Quantidade" required>
-            <button class="button" onclick="addItem()">Adicionar Item</button>
-        </div>
-        <div id="itemList"></div>
-        <div id="finalizeList"></div>
-        <button class="button" onclick="finalizeList()">Finalizar Lista</button>
-    </section>
-
     <script>
-        // Funções das Calculadoras
+        // Função para calcular a ingestão diária de água
         function calcularAgua() {
             let peso = document.getElementById("pesoAgua").value;
             if (peso) {
-                let agua = (peso * 35) / 1000;
+                let agua = (peso * 35) / 1000; // Fórmula de cálculo de ingestão de água
                 document.getElementById("resultadoAgua").innerText = `Você deve beber cerca de ${agua.toFixed(2)} litros de água por dia. 💧`;
             } else {
                 document.getElementById("resultadoAgua").innerText = "Informe seu peso corretamente.";
             }
         }
 
+        // Função para calcular o IMC
         function calcularIMC() {
             let peso = document.getElementById("pesoIMC").value;
             let altura = document.getElementById("alturaIMC").value;
             if (peso && altura) {
-                altura = altura / 100;
+                altura = altura / 100; // Convertendo altura para metros
                 let imc = peso / (altura * altura);
                 let categoria = "";
                 if (imc < 18.5) categoria = "Abaixo do peso";
@@ -236,6 +154,7 @@
             }
         }
 
+        // Função para calcular as calorias diárias
         function calcularCalorias() {
             let peso = document.getElementById("pesoCalorias").value;
             let altura = document.getElementById("alturaCalorias").value;
@@ -249,54 +168,13 @@
                 } else {
                     tmb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * idade);
                 }
-                let calorias = tmb * 1.2;
+                let calorias = tmb * 1.2; // Multiplicando pelo fator de atividade (moderada)
                 document.getElementById("resultadoCalorias").innerText = `Você deve consumir aproximadamente ${calorias.toFixed(2)} calorias por dia.`;
             } else {
                 document.getElementById("resultadoCalorias").innerText = "Por favor, preencha todos os campos corretamente.";
             }
         }
-
-        // Funções da Lista de Compras
-        let itemList = [];
-        
-        function addItem() {
-            const itemName = document.getElementById("itemName").value;
-            const itemPrice = parseFloat(document.getElementById("itemPrice").value);
-            const itemQuantity = parseInt(document.getElementById("itemQuantity").value);
-
-            if (itemName && itemPrice && itemQuantity) {
-                itemList.push({ name: itemName, price: itemPrice, quantity: itemQuantity });
-                document.getElementById("itemName").value = '';
-                document.getElementById("itemPrice").value = '';
-                document.getElementById("itemQuantity").value = '';
-                displayItems();
-            } else {
-                alert("Por favor, preencha todos os campos.");
-            }
-        }
-
-        function displayItems() {
-            const itemListDiv = document.getElementById("itemList");
-            itemListDiv.innerHTML = "";
-            let totalCost = 0;
-
-            itemList.forEach(item => {
-                totalCost += item.price * item.quantity;
-                itemListDiv.innerHTML += `<p>${item.name} - R$ ${item.price.toFixed(2)} (Quantidade: ${item.quantity})</p>`;
-            });
-            itemListDiv.innerHTML += `<p>Total Estimado: R$ ${totalCost.toFixed(2)}</p>`;
-            document.getElementById("finalizeList").style.display = 'block';
-        }
-
-        function finalizeList() {
-            const finalizeDiv = document.getElementById("finalizeList");
-            finalizeDiv.innerHTML = "<h3>Lista de Compras:</h3>";
-            itemList.forEach(item => {
-                finalizeDiv.innerHTML += `<p>${item.name} - R$ ${item.price.toFixed(2)} (Quantidade: ${item.quantity})</p>`;
-            });
-            finalizeDiv.innerHTML += `<p><strong>Total: R$ ${(itemList.reduce((sum, item) => sum + (item.price * item.quantity), 0)).toFixed(2)}</strong></p>`;
-            finalizeDiv.innerHTML += "<p><strong>Evite desperdícios, compre somente o necessário!</strong></p>";
-        }
     </script>
+
 </body>
 </html>
