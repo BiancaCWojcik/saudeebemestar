@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saúde e Bem-Estar 🏥💙 | ODS 3</title>
-    <!-- Biblioteca para gerar imagens -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
         body { 
@@ -121,32 +120,21 @@
             text-align: right;
         }
         
-        /* Estilo para a imagem da lista */
-        #listImageContainer {
-            display: none;
-            position: fixed;
-            top: -10000px;
-            left: -10000px;
-        }
-        
-        .list-image {
-            width: 400px;
+        /* Estilo para a visualização da lista */
+        .list-preview {
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: none;
         }
         
-        .list-header {
+        .list-preview h3 {
             text-align: center;
-            margin-bottom: 20px;
             color: #2c3e50;
-        }
-        
-        .list-header h3 {
-            margin: 0;
-            font-size: 1.5rem;
+            margin-top: 0;
         }
         
         .list-item {
@@ -156,13 +144,11 @@
             border-bottom: 1px dashed #eee;
         }
         
-        .list-footer {
-            margin-top: 20px;
-            padding-top: 10px;
-            border-top: 2px solid #4CAF50;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
+        .list-total {
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: right;
+            font-size: 1.2rem;
         }
         
         /* Botões de ação */
@@ -206,7 +192,7 @@
                 flex-direction: column;
             }
             
-            .list-image {
+            .list-preview {
                 width: 100%;
             }
         }
@@ -218,7 +204,7 @@
         <h2>Dicas de Saúde para o Dia a Dia 🌱</h2>
         <ul>
             <li><strong>Coma alimentos ricos em fibras:</strong> Alimentos como grãos integrais, frutas e vegetais ajudam na digestão e mantêm seu sistema imunológico forte.</li>
-            <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratique atividade física regularmente.</li>
+            <li><strong>Fique em movimento:</strong> Não fique parado por muito tempo. Levante-se, alongue-se e pratica atividade física regularmente.</li>
             <li><strong>Evite alimentos ricos em gorduras saturadas:</strong> Reduza o consumo de frituras, alimentos industrializados e fast food.</li>
             <li><strong>Preste atenção ao seu peso:</strong> Manter um peso saudável reduz o risco de doenças como diabetes tipo 2 e problemas cardíacos.</li>
             <li><strong>Não esqueça do sol:</strong> Exponha-se ao sol de forma segura, por cerca de 10-15 minutos por dia, para garantir níveis adequados de vitamina D.</li>
@@ -315,33 +301,20 @@
             <div class="total">Total estimado: R$ <span id="totalValue">0.00</span></div>
             
             <div class="action-buttons">
-                <button onclick="saveAsImage()" class="image-btn">Salvar como Imagem</button>
+                <button onclick="captureAndDownload()" class="image-btn">Salvar como Imagem</button>
                 <button onclick="shareOnWhatsApp()" class="whatsapp-btn">Enviar por WhatsApp</button>
             </div>
             
-            <p id="finalMessage" style="display:none; margin-top:20px;"></p>
+            <!-- Visualização da lista para captura -->
+            <div id="listPreview" class="list-preview">
+                <h3>🛒 Minha Lista de Compras Saudáveis</h3>
+                <p style="text-align: center;">📅 Data: <span id="previewDate"></span></p>
+                <div id="previewItems"></div>
+                <div class="list-total">Total: R$ <span id="previewTotal">0.00</span></div>
+                <p style="text-align: center; margin-top: 20px;">🍎 Compre com consciência e cuide da sua saúde! 🥦</p>
+            </div>
         </div>
     </section>
-
-    <!-- Container oculto para gerar a imagem -->
-    <div id="listImageContainer">
-        <div class="list-image" id="listToImage">
-            <div class="list-header">
-                <h3>🛒 Minha Lista de Compras Saudáveis</h3>
-                <p>📅 Data: <span id="currentDate"></span></p>
-            </div>
-            
-            <div id="imageItemsList"></div>
-            
-            <div class="total">
-                Total: R$ <span id="imageTotalValue">0.00</span>
-            </div>
-            
-            <div class="list-footer">
-                🍎 Compre com consciência e cuide da sua saúde! 🥦
-            </div>
-        </div>
-    </div>
 
     <script>
         // Funções das calculadoras de saúde
@@ -452,14 +425,14 @@
             document.getElementById("totalValue").textContent = total.toFixed(2);
         }
 
-        // Função para atualizar a lista na imagem
-        function updateImageList() {
-            const imageList = document.getElementById("imageItemsList");
-            imageList.innerHTML = "";
+        // Função para atualizar a visualização da lista
+        function updatePreview() {
+            const previewItems = document.getElementById("previewItems");
+            previewItems.innerHTML = "";
             
             // Atualiza data atual
             const now = new Date();
-            document.getElementById("currentDate").textContent = now.toLocaleDateString('pt-BR');
+            document.getElementById("previewDate").textContent = now.toLocaleDateString('pt-BR');
             
             items.forEach(item => {
                 const itemElement = document.createElement("div");
@@ -468,28 +441,47 @@
                     <span>${item.quantity}x ${item.name}</span>
                     <span>R$ ${item.itemTotal.toFixed(2)}</span>
                 `;
-                imageList.appendChild(itemElement);
+                previewItems.appendChild(itemElement);
             });
             
-            document.getElementById("imageTotalValue").textContent = total.toFixed(2);
+            document.getElementById("previewTotal").textContent = total.toFixed(2);
         }
 
-        // Função para salvar como imagem
-        function saveAsImage() {
+        // Função para capturar e baixar a imagem
+        function captureAndDownload() {
             if (items.length === 0) {
                 alert("Adicione itens à lista antes de salvar.");
                 return;
             }
             
-            updateImageList();
+            updatePreview();
+            const element = document.getElementById("listPreview");
+            element.style.display = "block";
             
-            const element = document.getElementById("listToImage");
+            // Configurações para html2canvas
+            const options = {
+                scale: 2,
+                logging: false,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: null,
+                scrollX: 0,
+                scrollY: -window.scrollY
+            };
             
-            html2canvas(element).then(canvas => {
+            html2canvas(element, options).then(canvas => {
+                // Esconde a visualização novamente
+                element.style.display = "none";
+                
+                // Cria link para download
                 const link = document.createElement("a");
                 link.download = "lista-compras-saudavel.png";
                 link.href = canvas.toDataURL("image/png");
                 link.click();
+            }).catch(err => {
+                console.error("Erro ao gerar imagem:", err);
+                element.style.display = "none";
+                alert("Ocorreu um erro ao gerar a imagem. Tente novamente.");
             });
         }
 
@@ -500,11 +492,27 @@
                 return;
             }
             
-            updateImageList();
+            // Primeiro tenta compartilhar como imagem
+            updatePreview();
+            const element = document.getElementById("listPreview");
+            element.style.display = "block";
             
-            html2canvas(document.getElementById("listToImage")).then(canvas => {
+            const options = {
+                scale: 2,
+                logging: false,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: null,
+                scrollX: 0,
+                scrollY: -window.scrollY
+            };
+            
+            html2canvas(element, options).then(canvas => {
+                element.style.display = "none";
+                
+                // Converte canvas para blob
                 canvas.toBlob(function(blob) {
-                    // Tenta usar a API de compartilhamento nativo
+                    // Tenta usar a API de compartilhamento
                     if (navigator.share && navigator.canShare) {
                         const file = new File([blob], "lista-compras.png", { type: "image/png" });
                         
@@ -513,27 +521,38 @@
                                 files: [file],
                                 title: 'Minha Lista de Compras Saudável',
                                 text: 'Confira minha lista de compras saudáveis!'
-                            })
-                            .catch(error => console.log('Erro ao compartilhar:', error));
+                            }).catch(err => {
+                                console.log('Erro ao compartilhar:', err);
+                                fallbackWhatsAppShare();
+                            });
                             return;
                         }
                     }
                     
-                    // Fallback para link do WhatsApp
-                    let message = "*🛒 Minha Lista de Compras Saudável*\n";
-                    message += `📅 Data: ${new Date().toLocaleDateString('pt-BR')}\n\n`;
-                    
-                    items.forEach(item => {
-                        message += `➡ ${item.quantity}x ${item.name}: R$ ${item.itemTotal.toFixed(2)}\n`;
-                    });
-                    
-                    message += `\n*💰 Total: R$ ${total.toFixed(2)}*\n\n`;
-                    message += "🍎 Compre com consciência e cuide da sua saúde! 🥦";
-                    
-                    const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-                    window.open(url, '_blank');
-                });
+                    // Fallback para compartilhamento via texto
+                    fallbackWhatsAppShare();
+                }, 'image/png');
+            }).catch(err => {
+                console.error("Erro ao gerar imagem:", err);
+                element.style.display = "none";
+                fallbackWhatsAppShare();
             });
+        }
+
+        // Fallback para compartilhamento via link do WhatsApp
+        function fallbackWhatsAppShare() {
+            let message = "*🛒 Minha Lista de Compras Saudável*\n";
+            message += `📅 Data: ${new Date().toLocaleDateString('pt-BR')}\n\n`;
+            
+            items.forEach(item => {
+                message += `➡ ${item.quantity}x ${item.name}: R$ ${item.itemTotal.toFixed(2)}\n`;
+            });
+            
+            message += `\n*💰 Total: R$ ${total.toFixed(2)}*\n\n`;
+            message += "🍎 Compre com consciência e cuide da sua saúde! 🥦";
+            
+            const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
